@@ -29,7 +29,7 @@ class TopPage extends ConsumerWidget {
 }
 
 class _AnswerList extends ConsumerWidget {
-  const _AnswerList({super.key});
+  const _AnswerList();
 
   @override
   Widget build(
