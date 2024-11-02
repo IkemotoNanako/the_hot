@@ -4,9 +4,11 @@ import 'package:flutter_hackathon_2024/application/provider/usecase_providers.da
 import 'package:flutter_hackathon_2024/ui/router/router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  usePathUrlStrategy();
   // .envを読み込めるように設定.
   await dotenv.load(fileName: 'dotenv');
   await Supabase.initialize(
