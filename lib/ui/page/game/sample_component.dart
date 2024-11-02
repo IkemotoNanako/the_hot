@@ -1,14 +1,16 @@
 import 'package:flame/components.dart';
 import 'package:flutter/material.dart';
+import 'dart:ui' as ui show Image;
 
-class SampleComponent extends RectangleComponent {
-  SampleComponent({required Vector2 super.position})
+class SampleComponent extends SpriteComponent {
+  SampleComponent({required this.image, super.position})
       : super(
             size: Vector2(100, 100),
             paint: Paint()..color = Colors.red,
             anchor: Anchor.center);
 
   Vector2 velocity = Vector2(0, 0);
+  final ui.Image image;
 
   @override
   void update(double dt) {
@@ -17,8 +19,9 @@ class SampleComponent extends RectangleComponent {
   }
 
   @override
-  void onLoad() {
+  void onLoad() async {
     super.onLoad();
+    sprite = Sprite(image);
     velocity = Vector2(0, 100);
   }
 }

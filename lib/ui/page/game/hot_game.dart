@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:http/http.dart' as http;
 
 import 'package:flame/game.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
@@ -13,11 +14,18 @@ class HotGame extends FlameGame with RiverpodGameMixin {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    final response = await http.get(Uri.parse(
+        'https://udulgbhamonxiegmurxx.supabase.co/storage/v1/object/public/hot_items/flutter.png?t=2024-11-02T14%3A19%3A08.479Z'));
+    final image = await decodeImageFromList(response.bodyBytes);
     final snap = ref.read(answersControllerProvider);
     snap.listen((event) {
       // ランダムに位置を決める
       final x = size.x / 2 + size.x * (Random().nextDouble() - 0.5);
-      add(SampleComponent(position: Vector2(x, 0)));
+
+      add(SampleComponent(
+        position: Vector2(x, 0),
+        image: image,
+      ));
     });
   }
 }
