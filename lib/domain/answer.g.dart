@@ -17,10 +17,10 @@ Map<String, dynamic> _$$AnswerImplToJson(_$AnswerImpl instance) =>
 
 _$AnswerFormsImpl _$$AnswerFormsImplFromJson(Map<String, dynamic> json) =>
     _$AnswerFormsImpl(
-      hotItemId: (json['hotItemId'] as num).toInt(),
+      hotItemId: (json['hot_item_id'] as num).toInt(),
     );
 
 Map<String, dynamic> _$$AnswerFormsImplToJson(_$AnswerFormsImpl instance) =>
     <String, dynamic>{
-      'hotItemId': instance.hotItemId,
+      'hot_item_id': instance.hotItemId,
     };

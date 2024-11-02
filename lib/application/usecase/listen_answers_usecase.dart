@@ -8,4 +8,11 @@ class ListenAnswersUsecase {
   Stream<List<Answer>> listenAnswers() {
     return _repository.fetchAnswerStream();
   }
+
+  Future<void> fetchMasterData() async {
+    await Future.wait([
+      _repository.fetchHotItemAll(),
+      _repository.fetchQuestionAll(),
+    ]);
+  }
 }
