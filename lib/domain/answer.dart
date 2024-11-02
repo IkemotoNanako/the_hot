@@ -8,7 +8,6 @@ part 'answer.g.dart';
 @freezed
 class Answer with _$Answer {
   const factory Answer({
-    required int id,
     required HotItem hotItem,
   }) = _Answer;
 

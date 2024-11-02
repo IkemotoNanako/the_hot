@@ -49,6 +49,26 @@ class CommonRepository {
   }
 
   Stream<List<Answer>> fetchAnswerStream() {
-    return const Stream.empty();
+    final response = supabase.from(tableNameAnswers).stream(
+      primaryKey: ['id'],
+    ).map(
+      (event) => event
+          .map(
+            (json) => AnswerForms.fromJson(json),
+          )
+          .toList(),
+    );
+    // ResponseをAnswerにマッピング
+    return response.map(
+      (event) => event
+          .map(
+            (answerForms) => Answer(
+              hotItem: _hotItemAll!.firstWhere(
+                (element) => element.id == answerForms.hotItemId,
+              ),
+            ),
+          )
+          .toList(),
+    );
   }
 }
