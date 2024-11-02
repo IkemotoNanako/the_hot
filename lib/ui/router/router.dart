@@ -29,19 +29,19 @@ GoRouter appRouter(Ref ref) {
     routes: $appRoutes,
     initialLocation: const TopPageRoute().location,
     refreshListenable: signedInNotifier,
-    redirect: (context, state) {
-      // final currentLocation = state.matchedLocation;
-      // if (!signedInNotifier.value) {
-      //   if (!unsignedInRouteLocations.contains(currentLocation)) {
-      //     return const SignInPageRoute().location;
-      //   }
-      // } else {
-      //   if (unsignedInRouteLocations.contains(currentLocation)) {
-      //     return const TopPageRoute().location;
-      //   }
-      // }
-      return const TopPageRoute().location;
-    },
+    // redirect: (context, state) {
+    // final currentLocation = state.matchedLocation;
+    // if (!signedInNotifier.value) {
+    //   if (!unsignedInRouteLocations.contains(currentLocation)) {
+    //     return const SignInPageRoute().location;
+    //   }
+    // } else {
+    //   if (unsignedInRouteLocations.contains(currentLocation)) {
+    //     return const TopPageRoute().location;
+    //   }
+    // }
+    // return const TopPageRoute().location;
+    // },
   );
 
   return router;
