@@ -7,14 +7,24 @@ part of 'router.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $sampleRoute,
+      $topPageRoute,
       $signInPageRoute,
     ];
 
-RouteBase get $sampleRoute => GoRouteData.$route(
-      path: '/sample',
-      factory: $SampleRouteExtension._fromState,
+RouteBase get $topPageRoute => GoRouteData.$route(
+      path: '/top_page',
+      factory: $TopPageRouteExtension._fromState,
       routes: [
+        GoRouteData.$route(
+          path: 'question',
+          factory: $QuestionPageRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'answer',
+              factory: $AnswerPageRouteExtension._fromState,
+            ),
+          ],
+        ),
         GoRouteData.$route(
           path: 'create_todo',
           factory: $CreateTodoRouteExtension._fromState,
@@ -32,11 +42,47 @@ RouteBase get $sampleRoute => GoRouteData.$route(
       ],
     );
 
-extension $SampleRouteExtension on SampleRoute {
-  static SampleRoute _fromState(GoRouterState state) => const SampleRoute();
+extension $TopPageRouteExtension on TopPageRoute {
+  static TopPageRoute _fromState(GoRouterState state) => const TopPageRoute();
 
   String get location => GoRouteData.$location(
-        '/sample',
+        '/top_page',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $QuestionPageRouteExtension on QuestionPageRoute {
+  static QuestionPageRoute _fromState(GoRouterState state) =>
+      const QuestionPageRoute();
+
+  String get location => GoRouteData.$location(
+        '/top_page/question',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AnswerPageRouteExtension on AnswerPageRoute {
+  static AnswerPageRoute _fromState(GoRouterState state) =>
+      const AnswerPageRoute();
+
+  String get location => GoRouteData.$location(
+        '/top_page/question/answer',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -54,7 +100,7 @@ extension $CreateTodoRouteExtension on CreateTodoRoute {
       const CreateTodoRoute();
 
   String get location => GoRouteData.$location(
-        '/sample/create_todo',
+        '/top_page/create_todo',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -72,7 +118,7 @@ extension $DebugPageRouteExtension on DebugPageRoute {
       const DebugPageRoute();
 
   String get location => GoRouteData.$location(
-        '/sample/debug',
+        '/top_page/debug',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -90,7 +136,7 @@ extension $DebugTextStyleRouteExtension on DebugTextStyleRoute {
       const DebugTextStyleRoute();
 
   String get location => GoRouteData.$location(
-        '/sample/debug/text_style',
+        '/top_page/debug/text_style',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -154,7 +200,7 @@ extension $SignUpPageRouteExtension on SignUpPageRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appRouterHash() => r'aae6dee3231ac9bbf1f32291d1801aebdcc71b1d';
+String _$appRouterHash() => r'ed3b1f5cc1ce16c1b20db9abc686928c64bf791b';
 
 /// See also [appRouter].
 @ProviderFor(appRouter)
