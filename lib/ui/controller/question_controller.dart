@@ -1,7 +1,6 @@
-import 'package:flutter_hackathon_2024/domain/hot_item.dart';
+import 'package:flutter_hackathon_2024/application/provider/usecase_providers.dart';
 import 'package:flutter_hackathon_2024/domain/question.dart';
 import 'package:flutter_hackathon_2024/domain/question_result.dart';
-import 'package:flutter_hackathon_2024/domain/search_condition.dart';
 import 'package:flutter_hackathon_2024/ui/state/question_state.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -18,38 +17,15 @@ class QuestionController extends _$QuestionController {
   }
 
   List<Question> _fetch() {
-    // return ref.read(randomizeQuestionUseCaseProvider).execute();
-    return [
-      const Question(
-          id: 1,
-          imageUrl: 'https://placehold.jp/1600x900.png',
-          description: 'ここに質問がくるよ質問質問',
-          weight: {}),
-      const Question(
-          id: 2, imageUrl: '', description: 'ここに質問がくるよ質問質問', weight: {}),
-      const Question(
-          id: 3,
-          imageUrl: 'https://placehold.jp/1600x900.png',
-          description: 'ここに質問がくるよ質問質問',
-          weight: {}),
-    ];
+    return ref.read(randomizeQuestionUseCaseProvider).execute();
   }
 
   void evaluateAnswer(List<QuestionResult> questionResult) {
-    // final result =
-    //     ref.read(evaluateAnswerUsecaseProvider).execute(questionResult);
+    final result =
+        ref.read(evaluateAnswerUsecaseProvider).execute(questionResult);
     // ここで結果を表示する処理を書く
     state = state.copyWith(
-      hotItem: const HotItem(
-        id: 1,
-        title: 'あわあわビール',
-        description: 'あわあわビールって最高だよね。大人の味だね。幸せだね。注ぐのも楽しいよね。',
-        imageUrl: 'https://placehold.jp/1600x900.png',
-        searchCondition: SearchCondition(
-          latitude: 0,
-          longitude: 0,
-        ),
-      ),
+      hotItem: result.hotItem,
     );
   }
 }
