@@ -1,0 +1,13 @@
+{
+  "dart.flutterSdkPath": ".fvm/versions/3.24.0",
+  "cSpell.words": [
+    "ANONKEY",
+    "dotenv",
+    "hackathon",
+    "kuhnroyal",
+    "pubspec",
+    "riverpod",
+    "subosito",
+    "supabase"
+  ]
+}
