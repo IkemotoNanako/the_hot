@@ -23,6 +23,7 @@ mixin _$Question {
   int get id => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   Map<int, int> get weight => throw _privateConstructorUsedError;
+  @JsonKey(name: 'image_url')
   String get imageUrl => throw _privateConstructorUsedError;
 
   /// Serializes this Question to a JSON map.
@@ -41,7 +42,10 @@ abstract class $QuestionCopyWith<$Res> {
       _$QuestionCopyWithImpl<$Res, Question>;
   @useResult
   $Res call(
-      {int id, String description, Map<int, int> weight, String imageUrl});
+      {int id,
+      String description,
+      Map<int, int> weight,
+      @JsonKey(name: 'image_url') String imageUrl});
 }
 
 /// @nodoc
@@ -94,7 +98,10 @@ abstract class _$$QuestionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id, String description, Map<int, int> weight, String imageUrl});
+      {int id,
+      String description,
+      Map<int, int> weight,
+      @JsonKey(name: 'image_url') String imageUrl});
 }
 
 /// @nodoc
@@ -143,7 +150,7 @@ class _$QuestionImpl implements _Question {
       {required this.id,
       required this.description,
       required final Map<int, int> weight,
-      required this.imageUrl})
+      @JsonKey(name: 'image_url') required this.imageUrl})
       : _weight = weight;
 
   factory _$QuestionImpl.fromJson(Map<String, dynamic> json) =>
@@ -162,6 +169,7 @@ class _$QuestionImpl implements _Question {
   }
 
   @override
+  @JsonKey(name: 'image_url')
   final String imageUrl;
 
   @override
@@ -205,10 +213,11 @@ class _$QuestionImpl implements _Question {
 
 abstract class _Question implements Question {
   const factory _Question(
-      {required final int id,
-      required final String description,
-      required final Map<int, int> weight,
-      required final String imageUrl}) = _$QuestionImpl;
+          {required final int id,
+          required final String description,
+          required final Map<int, int> weight,
+          @JsonKey(name: 'image_url') required final String imageUrl}) =
+      _$QuestionImpl;
 
   factory _Question.fromJson(Map<String, dynamic> json) =
       _$QuestionImpl.fromJson;
@@ -220,6 +229,7 @@ abstract class _Question implements Question {
   @override
   Map<int, int> get weight;
   @override
+  @JsonKey(name: 'image_url')
   String get imageUrl;
 
   /// Create a copy of Question

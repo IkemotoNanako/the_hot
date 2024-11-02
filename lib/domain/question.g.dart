@@ -13,7 +13,7 @@ _$QuestionImpl _$$QuestionImplFromJson(Map<String, dynamic> json) =>
       weight: (json['weight'] as Map<String, dynamic>).map(
         (k, e) => MapEntry(int.parse(k), (e as num).toInt()),
       ),
-      imageUrl: json['imageUrl'] as String,
+      imageUrl: json['image_url'] as String,
     );
 
 Map<String, dynamic> _$$QuestionImplToJson(_$QuestionImpl instance) =>
@@ -21,5 +21,5 @@ Map<String, dynamic> _$$QuestionImplToJson(_$QuestionImpl instance) =>
       'id': instance.id,
       'description': instance.description,
       'weight': instance.weight.map((k, e) => MapEntry(k.toString(), e)),
-      'imageUrl': instance.imageUrl,
+      'image_url': instance.imageUrl,
     };

@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'question.freezed.dart';
+
 part 'question.g.dart';
 
 @freezed
@@ -9,7 +10,7 @@ class Question with _$Question {
     required int id,
     required String description,
     required Map<int, int> weight,
-    required String imageUrl,
+    @JsonKey(name: 'image_url') required String imageUrl,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>
