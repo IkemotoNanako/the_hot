@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hackathon_2024/ui/page/answer_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/create_todo_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/debug/debug_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/debug/debug_text_style_page.dart';
+import 'package:flutter_hackathon_2024/ui/page/question_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/sample_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/sign_in_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/sign_up_page.dart';
+import 'package:flutter_hackathon_2024/ui/page/top_page.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -15,8 +18,8 @@ part 'router.g.dart';
 @riverpod
 GoRouter appRouter(Ref ref) {
   final unsignedInRouteLocations = [
-    const SignInPageRoute().location,
-    const SignUpPageRoute().location,
+    // const SignInPageRoute().location,
+    // const SignUpPageRoute().location,
   ];
 
   /// サインイン状態を監視する
@@ -24,7 +27,7 @@ GoRouter appRouter(Ref ref) {
 
   final router = GoRouter(
     routes: $appRoutes,
-    initialLocation: const SampleRoute().location,
+    initialLocation: const TopPageRoute().location,
     refreshListenable: signedInNotifier,
     redirect: (context, state) {
       final currentLocation = state.matchedLocation;
@@ -34,7 +37,7 @@ GoRouter appRouter(Ref ref) {
         }
       } else {
         if (unsignedInRouteLocations.contains(currentLocation)) {
-          return const SampleRoute().location;
+          return const TopPageRoute().location;
         }
       }
       return null;
@@ -44,12 +47,37 @@ GoRouter appRouter(Ref ref) {
   return router;
 }
 
-@TypedGoRoute<SampleRoute>(path: '/sample', routes: [
+@TypedGoRoute<TopPageRoute>(path: '/top_page', routes: [
+  TypedGoRoute<QuestionPageRoute>(path: 'question', routes: [
+    TypedGoRoute<AnswerPageRoute>(path: 'answer'),
+  ]),
   TypedGoRoute<CreateTodoRoute>(path: 'create_todo'),
   TypedGoRoute<DebugPageRoute>(path: 'debug', routes: [
     TypedGoRoute<DebugTextStyleRoute>(path: 'text_style'),
   ]),
 ])
+class TopPageRoute extends GoRouteData {
+  const TopPageRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const TopPage();
+}
+
+class QuestionPageRoute extends GoRouteData {
+  const QuestionPageRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const QuestionPage();
+}
+
+class AnswerPageRoute extends GoRouteData {
+  const AnswerPageRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const AnswerPage();
+}
+
 class SampleRoute extends GoRouteData {
   const SampleRoute();
 
