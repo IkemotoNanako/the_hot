@@ -4,6 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:flame/game.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hackathon_2024/application/provider/usecase_providers.dart';
 import 'package:flutter_hackathon_2024/ui/controller/answers_controller.dart';
 import 'package:flutter_hackathon_2024/ui/page/game/sample_component.dart';
 
@@ -14,6 +15,7 @@ class HotGame extends FlameGame with RiverpodGameMixin {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
+    await ref.read(listenAnswersUsecaseProvider).fetchMasterData();
     final response = await http.get(Uri.parse(
         'https://udulgbhamonxiegmurxx.supabase.co/storage/v1/object/public/hot_items/flutter.png?t=2024-11-02T14%3A19%3A08.479Z'));
     final image = await decodeImageFromList(response.bodyBytes);
