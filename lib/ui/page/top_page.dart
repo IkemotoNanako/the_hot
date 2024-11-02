@@ -46,6 +46,9 @@ class _Game extends ConsumerWidget {
 
 class MyGame extends FlameGame {
   @override
+  Color backgroundColor() => Colors.white;
+  
+  @override
   Future<void> onLoad() async {}
 }
 
