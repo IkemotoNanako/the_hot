@@ -73,7 +73,8 @@ class CommonRepository {
                 orElse: () => const HotItem(
                   id: 1,
                   title: 'title',
-                  imageUrl: 'imageUrl',
+                  imageUrl:
+                      'https://udulgbhamonxiegmurxx.supabase.co/storage/v1/object/public/hot_items/flutter.png?t=2024-11-02T14%3A19%3A08.479Z',
                   description: 'description',
                   searchCondition: SearchCondition(latitude: 0, longitude: 0),
                 ),
