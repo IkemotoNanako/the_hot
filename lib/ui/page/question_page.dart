@@ -19,30 +19,34 @@ class QuestionPage extends ConsumerWidget {
     final state = ref.watch(questionControllerProvider);
     final controller = ref.watch(questionControllerProvider.notifier);
     final hotItem = state.hotItem;
-    return Scaffold(
-      appBar: AppBar(
-        actions: [
-          state.hotItem != null
-              ? IconButton(
-                  icon: const Icon(Icons.home),
-                  onPressed: () {
-                    context.go(const TopPageRoute().location);
-                  },
-                )
-              : const SizedBox.shrink(),
-        ],
-      ),
-      body: Stack(
-        children: [
-          hotItem == null
-              ? _SwipeCard(
-                  questionList: state.questionList,
-                  onEvaluate: (questionResult) {
-                    controller.evaluateAnswer(questionResult);
-                  },
-                )
-              : _HotItemCard(hotItem: hotItem),
-        ],
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          automaticallyImplyLeading: false,
+          actions: [
+            state.hotItem != null
+                ? IconButton(
+                    icon: const Icon(Icons.home),
+                    onPressed: () {
+                      context.go(const TopPageRoute().location);
+                    },
+                  )
+                : const SizedBox.shrink(),
+          ],
+        ),
+        body: Stack(
+          children: [
+            hotItem == null
+                ? _SwipeCard(
+                    questionList: state.questionList,
+                    onEvaluate: (questionResult) {
+                      controller.evaluateAnswer(questionResult);
+                    },
+                  )
+                : _HotItemCard(hotItem: hotItem),
+          ],
+        ),
       ),
     );
   }
