@@ -81,6 +81,13 @@ class CommonRepository {
             return Answer(
               hotItem: _hotItemAll!.firstWhere(
                 (element) => element.id == answerForms.hotItemId,
+                orElse: () => const HotItem(
+                  id: 1,
+                  title: 'title',
+                  imageUrl: 'imageUrl',
+                  description: 'description',
+                  searchCondition: SearchCondition(latitude: 0, longitude: 0),
+                ),
               ),
             );
           },
