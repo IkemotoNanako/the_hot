@@ -21,7 +21,7 @@ class SampleComponent extends SpriteComponent {
   @override
   void onLoad() async {
     super.onLoad();
-    this.sprite = Sprite(image);
+    sprite = Sprite(image);
     velocity = Vector2(0, 100);
   }
 }
