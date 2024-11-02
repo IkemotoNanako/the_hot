@@ -23,12 +23,8 @@ mixin _$SearchCondition {
   double get latitude => throw _privateConstructorUsedError;
   double get longitude => throw _privateConstructorUsedError;
 
-  /// Serializes this SearchCondition to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of SearchCondition
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $SearchConditionCopyWith<SearchCondition> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -52,8 +48,6 @@ class _$SearchConditionCopyWithImpl<$Res, $Val extends SearchCondition>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SearchCondition
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,8 +86,6 @@ class __$$SearchConditionImplCopyWithImpl<$Res>
       _$SearchConditionImpl _value, $Res Function(_$SearchConditionImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SearchCondition
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -143,13 +135,11 @@ class _$SearchConditionImpl implements _SearchCondition {
                 other.longitude == longitude));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, latitude, longitude);
 
-  /// Create a copy of SearchCondition
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SearchConditionImplCopyWith<_$SearchConditionImpl> get copyWith =>
@@ -176,11 +166,8 @@ abstract class _SearchCondition implements SearchCondition {
   double get latitude;
   @override
   double get longitude;
-
-  /// Create a copy of SearchCondition
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SearchConditionImplCopyWith<_$SearchConditionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

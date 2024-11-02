@@ -23,12 +23,8 @@ mixin _$Answer {
   int get id => throw _privateConstructorUsedError;
   HotItem get hotItem => throw _privateConstructorUsedError;
 
-  /// Serializes this Answer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Answer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AnswerCopyWith<Answer> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -52,8 +48,6 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Answer
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -72,8 +66,6 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
     ) as $Val);
   }
 
-  /// Create a copy of Answer
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HotItemCopyWith<$Res> get hotItem {
@@ -104,8 +96,6 @@ class __$$AnswerImplCopyWithImpl<$Res>
       _$AnswerImpl _value, $Res Function(_$AnswerImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Answer
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -152,13 +142,11 @@ class _$AnswerImpl implements _Answer {
             (identical(other.hotItem, hotItem) || other.hotItem == hotItem));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, hotItem);
 
-  /// Create a copy of Answer
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AnswerImplCopyWith<_$AnswerImpl> get copyWith =>
@@ -182,11 +170,8 @@ abstract class _Answer implements Answer {
   int get id;
   @override
   HotItem get hotItem;
-
-  /// Create a copy of Answer
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AnswerImplCopyWith<_$AnswerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

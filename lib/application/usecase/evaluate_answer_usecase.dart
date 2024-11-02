@@ -1,4 +1,5 @@
 import 'package:flutter_hackathon_2024/domain/answer.dart';
+import 'package:flutter_hackathon_2024/domain/question_result.dart';
 import 'package:flutter_hackathon_2024/domain/hot_item.dart';
 import 'package:flutter_hackathon_2024/domain/search_condition.dart';
 import 'package:flutter_hackathon_2024/infrastructure/repository/common_repository.dart';
@@ -8,7 +9,7 @@ class EvaluateAnswerUsecase {
 
   EvaluateAnswerUsecase(this._repository);
 
-  Future<Answer> execute() async {
+  Answer execute(List<QuestionResult> questionResult) {
     _repository.hotItemAll;
     // Todo: 三つの答えから一つのAnswerを決定する
     // Todo: Answerを保存する

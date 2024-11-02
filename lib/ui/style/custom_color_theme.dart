@@ -5,7 +5,7 @@ class CustomColorTheme {
   static const Color primaryContainer = Color(0xFFD6EEE6);
   static const Color accent = Color(0xFFD2876A);
   static const Color accentContainer = Color(0xFFF1DAD1);
-  static const Color background = Color(0xFFF3F3F3);
+  static const Color background = Color(0xFFF1EEE6);
   static const Color black = Color(0xFF1A1B1B);
   static const Color white = Color(0xFFFFFFFF);
   static const Color gray = Color(0xFFCDCDCD);
