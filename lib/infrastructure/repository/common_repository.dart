@@ -1,3 +1,4 @@
+import 'package:flutter_hackathon_2024/domain/answer.dart';
 import 'package:flutter_hackathon_2024/domain/hot_item.dart';
 import 'package:flutter_hackathon_2024/domain/question.dart';
 
@@ -20,7 +21,7 @@ class CommonRepository {
     return;
   }
 
-  Stream<Question> fetchQuestionStream() {
+  Stream<List<Answer>> fetchAnswerStream() {
     return const Stream.empty();
   }
 }
