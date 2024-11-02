@@ -20,7 +20,6 @@ Answer _$AnswerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Answer {
-  int get id => throw _privateConstructorUsedError;
   HotItem get hotItem => throw _privateConstructorUsedError;
 
   /// Serializes this Answer to a JSON map.
@@ -37,7 +36,7 @@ abstract class $AnswerCopyWith<$Res> {
   factory $AnswerCopyWith(Answer value, $Res Function(Answer) then) =
       _$AnswerCopyWithImpl<$Res, Answer>;
   @useResult
-  $Res call({int id, HotItem hotItem});
+  $Res call({HotItem hotItem});
 
   $HotItemCopyWith<$Res> get hotItem;
 }
@@ -57,14 +56,9 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? hotItem = null,
   }) {
     return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
       hotItem: null == hotItem
           ? _value.hotItem
           : hotItem // ignore: cast_nullable_to_non_nullable
@@ -90,7 +84,7 @@ abstract class _$$AnswerImplCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       __$$AnswerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, HotItem hotItem});
+  $Res call({HotItem hotItem});
 
   @override
   $HotItemCopyWith<$Res> get hotItem;
@@ -109,14 +103,9 @@ class __$$AnswerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = null,
     Object? hotItem = null,
   }) {
     return _then(_$AnswerImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as int,
       hotItem: null == hotItem
           ? _value.hotItem
           : hotItem // ignore: cast_nullable_to_non_nullable
@@ -128,19 +117,17 @@ class __$$AnswerImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AnswerImpl implements _Answer {
-  const _$AnswerImpl({required this.id, required this.hotItem});
+  const _$AnswerImpl({required this.hotItem});
 
   factory _$AnswerImpl.fromJson(Map<String, dynamic> json) =>
       _$$AnswerImplFromJson(json);
 
   @override
-  final int id;
-  @override
   final HotItem hotItem;
 
   @override
   String toString() {
-    return 'Answer(id: $id, hotItem: $hotItem)';
+    return 'Answer(hotItem: $hotItem)';
   }
 
   @override
@@ -148,13 +135,12 @@ class _$AnswerImpl implements _Answer {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AnswerImpl &&
-            (identical(other.id, id) || other.id == id) &&
             (identical(other.hotItem, hotItem) || other.hotItem == hotItem));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, hotItem);
+  int get hashCode => Object.hash(runtimeType, hotItem);
 
   /// Create a copy of Answer
   /// with the given fields replaced by the non-null parameter values.
@@ -173,13 +159,10 @@ class _$AnswerImpl implements _Answer {
 }
 
 abstract class _Answer implements Answer {
-  const factory _Answer(
-      {required final int id, required final HotItem hotItem}) = _$AnswerImpl;
+  const factory _Answer({required final HotItem hotItem}) = _$AnswerImpl;
 
   factory _Answer.fromJson(Map<String, dynamic> json) = _$AnswerImpl.fromJson;
 
-  @override
-  int get id;
   @override
   HotItem get hotItem;
 

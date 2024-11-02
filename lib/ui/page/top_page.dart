@@ -42,8 +42,7 @@ class _AnswerList extends ConsumerWidget {
           itemCount: answers.length,
           itemBuilder: (context, index) {
             return ListTile(
-              title: Text(answers[index].id.toString()),
-              subtitle: Text(answers[index].hotItem.id.toString()),
+              title: Text(answers[index].hotItem.id.toString()),
             );
           },
         );

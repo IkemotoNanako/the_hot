@@ -13,7 +13,6 @@ class EvaluateAnswerUsecase {
     // Todo: 三つの答えから一つのAnswerを決定する
     // Todo: Answerを保存する
     return const Answer(
-      id: 1,
       hotItem: HotItem(
         id: 1,
         title: 'title',
