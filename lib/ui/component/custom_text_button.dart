@@ -25,10 +25,14 @@ class CustomTextButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         overlayColor: buttonColor,
+        padding: const EdgeInsets.symmetric(
+          vertical: 16,
+          horizontal: 46,
+        ),
       ),
       child: Text(
         label,
-        style: customTextTheme.labelMedium?.copyWith(
+        style: customTextTheme.headlineLarge?.copyWith(
           color: buttonColor,
         ),
       ),
