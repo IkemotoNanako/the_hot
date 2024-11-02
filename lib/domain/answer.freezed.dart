@@ -167,12 +167,8 @@ AnswerForms _$AnswerFormsFromJson(Map<String, dynamic> json) {
 mixin _$AnswerForms {
   int get hotItemId => throw _privateConstructorUsedError;
 
-  /// Serializes this AnswerForms to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of AnswerForms
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $AnswerFormsCopyWith<AnswerForms> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -196,8 +192,6 @@ class _$AnswerFormsCopyWithImpl<$Res, $Val extends AnswerForms>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of AnswerForms
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -231,8 +225,6 @@ class __$$AnswerFormsImplCopyWithImpl<$Res>
       _$AnswerFormsImpl _value, $Res Function(_$AnswerFormsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of AnswerForms
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -272,13 +264,11 @@ class _$AnswerFormsImpl implements _AnswerForms {
                 other.hotItemId == hotItemId));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, hotItemId);
 
-  /// Create a copy of AnswerForms
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$AnswerFormsImplCopyWith<_$AnswerFormsImpl> get copyWith =>
@@ -301,11 +291,8 @@ abstract class _AnswerForms implements AnswerForms {
 
   @override
   int get hotItemId;
-
-  /// Create a copy of AnswerForms
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$AnswerFormsImplCopyWith<_$AnswerFormsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

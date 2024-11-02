@@ -1,7 +1,5 @@
 import 'package:flutter_hackathon_2024/domain/answer.dart';
 import 'package:flutter_hackathon_2024/domain/question_result.dart';
-import 'package:flutter_hackathon_2024/domain/hot_item.dart';
-import 'package:flutter_hackathon_2024/domain/search_condition.dart';
 import 'package:flutter_hackathon_2024/infrastructure/repository/common_repository.dart';
 
 class EvaluateAnswerUsecase {
@@ -10,17 +8,61 @@ class EvaluateAnswerUsecase {
   EvaluateAnswerUsecase(this._repository);
 
   Answer execute(List<QuestionResult> questionResult) {
-    _repository.hotItemAll;
-    // Todo: 三つの答えから一つのAnswerを決定する
-    // Todo: Answerを保存する
-    return const Answer(
-      hotItem: HotItem(
-        id: 1,
-        title: 'title',
-        description: 'description',
-        imageUrl: 'imageUrl',
-        searchCondition: SearchCondition(latitude: 0, longitude: 0),
-      ),
+    final hotItems = _repository.hotItemAll;
+    // 1. 答えられたQuestionを抽出
+    // 2. そのQuestionの重みを取得
+    // 3. 重みをそれぞれのHotItemで足す。isYesならプラス、falseならマイナス
+    final answeredQuestionsWeight = _repository.questionAll.where((question) {
+      return questionResult
+          .map((result) => result.questionId)
+          .contains(question.id);
+    }).map((question) {
+      final isYes = questionResult
+          .firstWhere((result) => result.questionId == question.id)
+          .isYes;
+      return isYes
+          ? question.weight
+          : question.weight.map((key, value) => MapEntry(key, -value));
+    });
+
+    //
+    final hotItemWeight = answeredQuestionsWeight.fold<Map<int, int>>(
+      {},
+      (previousValue, element) {
+        element.forEach((key, value) {
+          previousValue.update(
+            key,
+            (value) => value + element[key]!,
+            ifAbsent: () => element[key]!,
+          );
+        });
+        return previousValue;
+      },
     );
+    // todo: supabaseに保存
+
+    final answer = findItemIdWithMaxWeight(hotItemWeight);
+
+    return Answer(
+      hotItem: hotItems.firstWhere((element) => element.id == answer),
+    );
+  }
+
+  int? findItemIdWithMaxWeight(Map<int, int> map) {
+    if (map.isEmpty) {
+      return null;
+    }
+
+    int maxItemId = map.keys.first;
+    int maxWeight = map[maxItemId]!;
+
+    for (var key in map.keys) {
+      if (map[key]! > maxWeight) {
+        maxWeight = map[key]!;
+        maxItemId = key;
+      }
+    }
+
+    return maxItemId;
   }
 }
