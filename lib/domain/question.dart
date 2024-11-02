@@ -9,7 +9,7 @@ class Question with _$Question {
     required int id,
     required String description,
     required Map<int, int> weight,
-    required String urlImage,
+    required String imageUrl,
   }) = _Question;
 
   factory Question.fromJson(Map<String, dynamic> json) =>

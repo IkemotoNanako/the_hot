@@ -23,7 +23,7 @@ mixin _$Question {
   int get id => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   Map<int, int> get weight => throw _privateConstructorUsedError;
-  String get urlImage => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
 
   /// Serializes this Question to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $QuestionCopyWith<$Res> {
       _$QuestionCopyWithImpl<$Res, Question>;
   @useResult
   $Res call(
-      {int id, String description, Map<int, int> weight, String urlImage});
+      {int id, String description, Map<int, int> weight, String imageUrl});
 }
 
 /// @nodoc
@@ -62,7 +62,7 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
     Object? id = null,
     Object? description = null,
     Object? weight = null,
-    Object? urlImage = null,
+    Object? imageUrl = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -77,9 +77,9 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as Map<int, int>,
-      urlImage: null == urlImage
-          ? _value.urlImage
-          : urlImage // ignore: cast_nullable_to_non_nullable
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -94,7 +94,7 @@ abstract class _$$QuestionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int id, String description, Map<int, int> weight, String urlImage});
+      {int id, String description, Map<int, int> weight, String imageUrl});
 }
 
 /// @nodoc
@@ -113,7 +113,7 @@ class __$$QuestionImplCopyWithImpl<$Res>
     Object? id = null,
     Object? description = null,
     Object? weight = null,
-    Object? urlImage = null,
+    Object? imageUrl = null,
   }) {
     return _then(_$QuestionImpl(
       id: null == id
@@ -128,9 +128,9 @@ class __$$QuestionImplCopyWithImpl<$Res>
           ? _value._weight
           : weight // ignore: cast_nullable_to_non_nullable
               as Map<int, int>,
-      urlImage: null == urlImage
-          ? _value.urlImage
-          : urlImage // ignore: cast_nullable_to_non_nullable
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -143,7 +143,7 @@ class _$QuestionImpl implements _Question {
       {required this.id,
       required this.description,
       required final Map<int, int> weight,
-      required this.urlImage})
+      required this.imageUrl})
       : _weight = weight;
 
   factory _$QuestionImpl.fromJson(Map<String, dynamic> json) =>
@@ -162,11 +162,11 @@ class _$QuestionImpl implements _Question {
   }
 
   @override
-  final String urlImage;
+  final String imageUrl;
 
   @override
   String toString() {
-    return 'Question(id: $id, description: $description, weight: $weight, urlImage: $urlImage)';
+    return 'Question(id: $id, description: $description, weight: $weight, imageUrl: $imageUrl)';
   }
 
   @override
@@ -178,14 +178,14 @@ class _$QuestionImpl implements _Question {
             (identical(other.description, description) ||
                 other.description == description) &&
             const DeepCollectionEquality().equals(other._weight, _weight) &&
-            (identical(other.urlImage, urlImage) ||
-                other.urlImage == urlImage));
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, description,
-      const DeepCollectionEquality().hash(_weight), urlImage);
+      const DeepCollectionEquality().hash(_weight), imageUrl);
 
   /// Create a copy of Question
   /// with the given fields replaced by the non-null parameter values.
@@ -208,7 +208,7 @@ abstract class _Question implements Question {
       {required final int id,
       required final String description,
       required final Map<int, int> weight,
-      required final String urlImage}) = _$QuestionImpl;
+      required final String imageUrl}) = _$QuestionImpl;
 
   factory _Question.fromJson(Map<String, dynamic> json) =
       _$QuestionImpl.fromJson;
@@ -220,7 +220,7 @@ abstract class _Question implements Question {
   @override
   Map<int, int> get weight;
   @override
-  String get urlImage;
+  String get imageUrl;
 
   /// Create a copy of Question
   /// with the given fields replaced by the non-null parameter values.
