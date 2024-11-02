@@ -25,10 +25,15 @@ class HotGame extends FlameGame with RiverpodGameMixin {
       // ランダムにサイズを決める 0.8~1.2倍
       final scale = 0.8 + Random().nextDouble() * 0.4;
       final componentSize = Vector2(100, 100) * scale;
+
+      // ランダムに角速度を決める -1~1
+      final angularVelocity = Random().nextDouble() * 2 - 1;
+
       add(SampleComponent(
         position: Vector2(x, 0),
         image: image,
         size: componentSize,
+        angularVelocity: angularVelocity,
       ));
     });
   }
