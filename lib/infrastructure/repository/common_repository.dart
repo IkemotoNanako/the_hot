@@ -1,6 +1,7 @@
 import 'package:flutter_hackathon_2024/domain/answer.dart';
 import 'package:flutter_hackathon_2024/domain/hot_item.dart';
 import 'package:flutter_hackathon_2024/domain/question.dart';
+import 'package:flutter_hackathon_2024/domain/search_condition.dart';
 import 'package:flutter_hackathon_2024/util/constant.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -63,15 +64,28 @@ class CommonRepository {
     }
     // ResponseをAnswerにマッピング
     return response.map(
-      (event) => event
-          .map(
-            (answerForms) => Answer(
+      (event) {
+        return event.map(
+          (answerForms) {
+            if (_hotItemAll == null) {
+              return const Answer(
+                hotItem: HotItem(
+                    id: 1,
+                    title: 'title',
+                    imageUrl: 'imageUrl',
+                    description: 'description',
+                    searchCondition:
+                        SearchCondition(latitude: 0, longitude: 0)),
+              );
+            }
+            return Answer(
               hotItem: _hotItemAll!.firstWhere(
                 (element) => element.id == answerForms.hotItemId,
               ),
-            ),
-          )
-          .toList(),
+            );
+          },
+        ).toList();
+      },
     );
   }
 }
