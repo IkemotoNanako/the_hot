@@ -67,17 +67,6 @@ class CommonRepository {
       (event) {
         return event.map(
           (answerForms) {
-            if (_hotItemAll == null) {
-              return const Answer(
-                hotItem: HotItem(
-                    id: 1,
-                    title: 'title',
-                    imageUrl: 'imageUrl',
-                    description: 'description',
-                    searchCondition:
-                        SearchCondition(latitude: 0, longitude: 0)),
-              );
-            }
             return Answer(
               hotItem: _hotItemAll!.firstWhere(
                 (element) => element.id == answerForms.hotItemId,
