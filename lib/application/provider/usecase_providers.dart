@@ -1,3 +1,5 @@
+import 'package:flutter_hackathon_2024/application/usecase/evaluate_answer_usecase.dart';
+import 'package:flutter_hackathon_2024/application/usecase/get_master_data_usecase.dart';
 import 'package:flutter_hackathon_2024/application/usecase/sample_usecase.dart';
 import 'package:flutter_hackathon_2024/application/usecase/sign_in_usecase.dart';
 import 'package:flutter_hackathon_2024/application/usecase/sign_out_usecase.dart';
@@ -25,4 +27,19 @@ SignInUsecase signInUsecase(SignInUsecaseRef ref) {
 @riverpod
 SignOutUsecase signOutUsecase(SignOutUsecaseRef ref) {
   return SignOutUsecase(ref.read(authRepositoryProvider));
+}
+
+@riverpod
+EvaluateAnswerUsecase evaluateAnswerUsecase(EvaluateAnswerUsecaseRef ref) {
+  return EvaluateAnswerUsecase(ref.read(commonRepositoryProvider));
+}
+
+@riverpod
+GetMasterDataUsecase getMasterDataUsecase(GetMasterDataUsecaseRef ref) {
+  return GetMasterDataUsecase(ref.read(commonRepositoryProvider));
+}
+
+@riverpod
+GetMasterDataUsecase getHotItemUsecase(GetHotItemUsecaseRef ref) {
+  return GetMasterDataUsecase(ref.read(commonRepositoryProvider));
 }
