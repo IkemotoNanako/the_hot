@@ -1,5 +1,7 @@
 import 'package:flutter_hackathon_2024/domain/answer.dart';
 import 'package:flutter_hackathon_2024/domain/question_result.dart';
+import 'package:flutter_hackathon_2024/domain/hot_item.dart';
+import 'package:flutter_hackathon_2024/domain/search_condition.dart';
 import 'package:flutter_hackathon_2024/infrastructure/repository/common_repository.dart';
 
 class EvaluateAnswerUsecase {
@@ -13,7 +15,13 @@ class EvaluateAnswerUsecase {
     // Todo: Answerを保存する
     return const Answer(
       id: 1,
-      hotItemId: 1,
+      hotItem: HotItem(
+        id: 1,
+        title: 'title',
+        description: 'description',
+        imageUrl: 'imageUrl',
+        searchCondition: SearchCondition(latitude: 0, longitude: 0),
+      ),
     );
   }
 }

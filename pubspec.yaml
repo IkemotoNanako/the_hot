@@ -8,6 +8,8 @@ environment:
 
 dependencies:
   email_validator: ^3.0.0
+  flame: ^1.21.0
+  flame_riverpod: ^5.4.5
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.1.0

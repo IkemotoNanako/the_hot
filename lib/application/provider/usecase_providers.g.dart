@@ -135,5 +135,22 @@ final randomizeQuestionUseCaseProvider =
 
 typedef RandomizeQuestionUseCaseRef
     = AutoDisposeProviderRef<RandomizeQuestionUseCase>;
+String _$listenAnswersUsecaseHash() =>
+    r'c6db92a300bfb78995de2fb47d275f95b79972e5';
+
+/// See also [listenAnswersUsecase].
+@ProviderFor(listenAnswersUsecase)
+final listenAnswersUsecaseProvider =
+    AutoDisposeProvider<ListenAnswersUsecase>.internal(
+  listenAnswersUsecase,
+  name: r'listenAnswersUsecaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$listenAnswersUsecaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef ListenAnswersUsecaseRef = AutoDisposeProviderRef<ListenAnswersUsecase>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
