@@ -26,15 +26,6 @@ class QuestionController extends _$QuestionController {
     ];
   }
 
-  // void setQuestionResult(int index, bool isYes) {
-  //   state = state.copyWith(
-  //     answerResult: [
-  //       ...state.answerResult,
-  //       QuestionResult(questionId: index, isYes: isYes)
-  //     ],
-  //   );
-  // }
-
   void evaluateAnswer(List<QuestionResult> questionResult) {
     // final result =
     //     ref.read(evaluateAnswerUsecaseProvider).execute(questionResult);
