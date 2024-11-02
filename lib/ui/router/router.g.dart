@@ -200,7 +200,7 @@ extension $SignUpPageRouteExtension on SignUpPageRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appRouterHash() => r'ed3b1f5cc1ce16c1b20db9abc686928c64bf791b';
+String _$appRouterHash() => r'275136e99245f25d73574fc600246f38907d02df';
 
 /// See also [appRouter].
 @ProviderFor(appRouter)

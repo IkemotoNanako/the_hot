@@ -18,8 +18,8 @@ part 'router.g.dart';
 @riverpod
 GoRouter appRouter(Ref ref) {
   final unsignedInRouteLocations = [
-    const SignInPageRoute().location,
-    const SignUpPageRoute().location,
+    // const SignInPageRoute().location,
+    // const SignUpPageRoute().location,
   ];
 
   /// サインイン状態を監視する
