@@ -95,13 +95,60 @@ class _SwipeCard extends StatelessWidget {
       overlayBuilder: (context, properties) {
         final opacity = min(properties.swipeProgress, 1.0);
         final isRight = properties.direction == SwipeDirection.right;
-        return Opacity(
+        return _OverlayCard(opacity: opacity, isRight: isRight);
+      },
+    );
+  }
+}
+
+class _OverlayCard extends StatelessWidget {
+  const _OverlayCard({
+    required this.opacity,
+    required this.isRight,
+  });
+
+  final double opacity;
+  final bool isRight;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Opacity(
           opacity: opacity,
           child: Container(
             color: isRight ? CustomColorTheme.primary : CustomColorTheme.accent,
           ),
-        );
-      },
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Flexible(child: SizedBox.expand()),
+            Container(
+              padding: const EdgeInsets.all(32),
+              decoration: BoxDecoration(
+                color: CustomColorTheme.white,
+                borderRadius: BorderRadius.circular(100),
+              ),
+              child: Icon(
+                isRight ? Icons.circle_outlined : Icons.close,
+                color: isRight
+                    ? CustomColorTheme.primary
+                    : CustomColorTheme.accent,
+                size: 96,
+              ),
+            ),
+            Expanded(
+              child: Text(
+                isRight ? 'YES' : 'NO',
+                style: customTextTheme.headlineLarge?.copyWith(
+                  color: CustomColorTheme.white,
+                ),
+              ),
+            ),
+          ],
+        )
+      ],
     );
   }
 }
