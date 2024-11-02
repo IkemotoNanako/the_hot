@@ -22,8 +22,12 @@ Answer _$AnswerFromJson(Map<String, dynamic> json) {
 mixin _$Answer {
   HotItem get hotItem => throw _privateConstructorUsedError;
 
+  /// Serializes this Answer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of Answer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $AnswerCopyWith<Answer> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -47,6 +51,8 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of Answer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -60,6 +66,8 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
     ) as $Val);
   }
 
+  /// Create a copy of Answer
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $HotItemCopyWith<$Res> get hotItem {
@@ -90,6 +98,8 @@ class __$$AnswerImplCopyWithImpl<$Res>
       _$AnswerImpl _value, $Res Function(_$AnswerImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of Answer
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -128,11 +138,13 @@ class _$AnswerImpl implements _Answer {
             (identical(other.hotItem, hotItem) || other.hotItem == hotItem));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, hotItem);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of Answer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$AnswerImplCopyWith<_$AnswerImpl> get copyWith =>
@@ -153,8 +165,11 @@ abstract class _Answer implements Answer {
 
   @override
   HotItem get hotItem;
+
+  /// Create a copy of Answer
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$AnswerImplCopyWith<_$AnswerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -165,6 +180,7 @@ AnswerForms _$AnswerFormsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AnswerForms {
+  @JsonKey(name: 'hot_item_id')
   int get hotItemId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -179,7 +195,7 @@ abstract class $AnswerFormsCopyWith<$Res> {
           AnswerForms value, $Res Function(AnswerForms) then) =
       _$AnswerFormsCopyWithImpl<$Res, AnswerForms>;
   @useResult
-  $Res call({int hotItemId});
+  $Res call({@JsonKey(name: 'hot_item_id') int hotItemId});
 }
 
 /// @nodoc
@@ -214,7 +230,7 @@ abstract class _$$AnswerFormsImplCopyWith<$Res>
       __$$AnswerFormsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int hotItemId});
+  $Res call({@JsonKey(name: 'hot_item_id') int hotItemId});
 }
 
 /// @nodoc
@@ -242,12 +258,14 @@ class __$$AnswerFormsImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AnswerFormsImpl implements _AnswerForms {
-  const _$AnswerFormsImpl({required this.hotItemId});
+  const _$AnswerFormsImpl(
+      {@JsonKey(name: 'hot_item_id') required this.hotItemId});
 
   factory _$AnswerFormsImpl.fromJson(Map<String, dynamic> json) =>
       _$$AnswerFormsImplFromJson(json);
 
   @override
+  @JsonKey(name: 'hot_item_id')
   final int hotItemId;
 
   @override
@@ -283,13 +301,15 @@ class _$AnswerFormsImpl implements _AnswerForms {
 }
 
 abstract class _AnswerForms implements AnswerForms {
-  const factory _AnswerForms({required final int hotItemId}) =
+  const factory _AnswerForms(
+          {@JsonKey(name: 'hot_item_id') required final int hotItemId}) =
       _$AnswerFormsImpl;
 
   factory _AnswerForms.fromJson(Map<String, dynamic> json) =
       _$AnswerFormsImpl.fromJson;
 
   @override
+  @JsonKey(name: 'hot_item_id')
   int get hotItemId;
   @override
   @JsonKey(ignore: true)

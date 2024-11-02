@@ -2,9 +2,8 @@ import 'package:flutter_hackathon_2024/application/provider/usecase_providers.da
 import 'package:flutter_hackathon_2024/domain/answer.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'answers_controller.g.dart';
+final answersControllerProvider = Provider<Stream<List<Answer>>>((ref) {
+  // Todo: Supabaseと繋げる
 
-@riverpod
-Stream<List<Answer>> answersController(AnswersControllerRef ref) {
-  return ref.read(listenAnswersUsecaseProvider).listenAnswers();
-}
+  return ref.watch(listenAnswersUsecaseProvider).listenAnswers();
+});
