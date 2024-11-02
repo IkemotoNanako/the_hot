@@ -6,7 +6,7 @@ class RandomizeQuestionUseCase {
 
   RandomizeQuestionUseCase(this._repository);
 
-  Future<List<Question>> execute() async {
+  List<Question> execute() {
     final allQuestions = _repository.questionAll;
     // リストをシャッフル
     allQuestions.shuffle();

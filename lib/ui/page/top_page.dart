@@ -1,3 +1,4 @@
+import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hackathon_2024/ui/controller/answers_controller.dart';
 import 'package:flutter_hackathon_2024/ui/router/router.dart';
@@ -16,6 +17,7 @@ class TopPage extends ConsumerWidget {
       body: Stack(
         children: [
           const _AnswerList(),
+          const _Game(),
           Center(
               child: OutlinedButton(
                   onPressed: () {
@@ -26,6 +28,26 @@ class TopPage extends ConsumerWidget {
       ),
     );
   }
+}
+
+class _Game extends ConsumerWidget {
+  const _Game();
+
+  @override
+  Widget build(
+    BuildContext context,
+    WidgetRef ref,
+  ) {
+    return GameWidget(game: MyGame());
+  }
+}
+
+class MyGame extends FlameGame {
+  @override
+  Color backgroundColor() => Colors.white;
+
+  @override
+  Future<void> onLoad() async {}
 }
 
 class _AnswerList extends ConsumerWidget {

@@ -117,6 +117,24 @@ final getHotItemUsecaseProvider =
 );
 
 typedef GetHotItemUsecaseRef = AutoDisposeProviderRef<GetMasterDataUsecase>;
+String _$randomizeQuestionUseCaseHash() =>
+    r'66978274b3834c7b386fb5332fe906c74a8fe099';
+
+/// See also [randomizeQuestionUseCase].
+@ProviderFor(randomizeQuestionUseCase)
+final randomizeQuestionUseCaseProvider =
+    AutoDisposeProvider<RandomizeQuestionUseCase>.internal(
+  randomizeQuestionUseCase,
+  name: r'randomizeQuestionUseCaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$randomizeQuestionUseCaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef RandomizeQuestionUseCaseRef
+    = AutoDisposeProviderRef<RandomizeQuestionUseCase>;
 String _$listenAnswersUsecaseHash() =>
     r'c6db92a300bfb78995de2fb47d275f95b79972e5';
 

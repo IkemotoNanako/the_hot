@@ -28,12 +28,8 @@ mixin _$Todo {
   @JsonKey(name: 'is_completed')
   bool get isCompleted => throw _privateConstructorUsedError;
 
-  /// Serializes this Todo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of Todo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TodoCopyWith<Todo> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -60,8 +56,6 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of Todo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -118,8 +112,6 @@ class __$$TodoImplCopyWithImpl<$Res>
   __$$TodoImplCopyWithImpl(_$TodoImpl _value, $Res Function(_$TodoImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of Todo
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -199,14 +191,12 @@ class _$TodoImpl implements _Todo {
                 other.isCompleted == isCompleted));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, id, title, description, userId, isCompleted);
 
-  /// Create a copy of Todo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TodoImplCopyWith<_$TodoImpl> get copyWith =>
@@ -243,11 +233,8 @@ abstract class _Todo implements Todo {
   @override
   @JsonKey(name: 'is_completed')
   bool get isCompleted;
-
-  /// Create a copy of Todo
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TodoImplCopyWith<_$TodoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -265,12 +252,8 @@ mixin _$TodoForms {
   @JsonKey(name: 'is_completed')
   bool get isCompleted => throw _privateConstructorUsedError;
 
-  /// Serializes this TodoForms to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of TodoForms
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $TodoFormsCopyWith<TodoForms> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -297,8 +280,6 @@ class _$TodoFormsCopyWithImpl<$Res, $Val extends TodoForms>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of TodoForms
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -351,8 +332,6 @@ class __$$TodoFormsImplCopyWithImpl<$Res>
       _$TodoFormsImpl _value, $Res Function(_$TodoFormsImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of TodoForms
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -423,14 +402,12 @@ class _$TodoFormsImpl implements _TodoForms {
                 other.isCompleted == isCompleted));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode =>
       Object.hash(runtimeType, title, description, userId, isCompleted);
 
-  /// Create a copy of TodoForms
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$TodoFormsImplCopyWith<_$TodoFormsImpl> get copyWith =>
@@ -464,11 +441,8 @@ abstract class _TodoForms implements TodoForms {
   @override
   @JsonKey(name: 'is_completed')
   bool get isCompleted;
-
-  /// Create a copy of TodoForms
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$TodoFormsImplCopyWith<_$TodoFormsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

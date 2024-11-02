@@ -28,12 +28,8 @@ mixin _$HotItem {
   @JsonKey(name: 'search_condition')
   SearchCondition get searchCondition => throw _privateConstructorUsedError;
 
-  /// Serializes this HotItem to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-
-  /// Create a copy of HotItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $HotItemCopyWith<HotItem> get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -62,8 +58,6 @@ class _$HotItemCopyWithImpl<$Res, $Val extends HotItem>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of HotItem
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -97,8 +91,6 @@ class _$HotItemCopyWithImpl<$Res, $Val extends HotItem>
     ) as $Val);
   }
 
-  /// Create a copy of HotItem
-  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $SearchConditionCopyWith<$Res> get searchCondition {
@@ -134,8 +126,6 @@ class __$$HotItemImplCopyWithImpl<$Res>
       _$HotItemImpl _value, $Res Function(_$HotItemImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of HotItem
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -216,14 +206,12 @@ class _$HotItemImpl implements _HotItem {
                 other.searchCondition == searchCondition));
   }
 
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType, id, title, description, imageUrl, searchCondition);
 
-  /// Create a copy of HotItem
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$HotItemImplCopyWith<_$HotItemImpl> get copyWith =>
@@ -260,11 +248,8 @@ abstract class _HotItem implements HotItem {
   @override
   @JsonKey(name: 'search_condition')
   SearchCondition get searchCondition;
-
-  /// Create a copy of HotItem
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$HotItemImplCopyWith<_$HotItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
