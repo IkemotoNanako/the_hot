@@ -25,6 +25,8 @@ class QuestionPage extends ConsumerWidget {
       child: Scaffold(
         appBar: state.hotItem != null
             ? AppBar(
+                surfaceTintColor: CustomColorTheme.transparent,
+                backgroundColor: CustomColorTheme.transparent,
                 automaticallyImplyLeading: false,
                 actions: [
                   IconButton(
@@ -56,7 +58,62 @@ class _HotItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.fromSize();
+    return Padding(
+      padding: const EdgeInsets.only(left: 8, right: 8, top: 16),
+      child: Column(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(64),
+            child: Image.network(
+              hotItem.imageUrl,
+              height: MediaQuery.of(context).size.width * 0.7,
+              width: MediaQuery.of(context).size.width * 0.7,
+              fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                return const SizedBox.shrink();
+              },
+            ),
+          ),
+          const SizedBox(height: 32),
+          Text(
+            hotItem.title,
+            style: customTextTheme.headlineLarge,
+          ),
+          const SizedBox(height: 8),
+          Text(
+            hotItem.description,
+            style: customTextTheme.bodyLarge,
+          ),
+          const SizedBox(height: 32),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 3,
+              itemBuilder: (context, index) {
+                return InkWell(
+                  onTap: () {},
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: CustomColorTheme.white,
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          '選択肢$index',
+                          style: customTextTheme.bodyLarge,
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
