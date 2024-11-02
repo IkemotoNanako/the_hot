@@ -38,7 +38,13 @@ class CommonRepository {
     }
   }
 
-  Future<void> setAnswer(HotItem hotItem) async {
+  Future<void> setAnswer(AnswerForms answerForms) async {
+    try {
+      await supabase.from(tableNameAnswers).insert(answerForms.toJson());
+    } catch (e) {
+      // todo: エラーハンドリング
+      rethrow;
+    }
     return;
   }
 

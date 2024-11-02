@@ -190,3 +190,154 @@ abstract class _Answer implements Answer {
   _$$AnswerImplCopyWith<_$AnswerImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
+
+AnswerForms _$AnswerFormsFromJson(Map<String, dynamic> json) {
+  return _AnswerForms.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AnswerForms {
+  int get hotItemId => throw _privateConstructorUsedError;
+
+  /// Serializes this AnswerForms to a JSON map.
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+
+  /// Create a copy of AnswerForms
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  $AnswerFormsCopyWith<AnswerForms> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AnswerFormsCopyWith<$Res> {
+  factory $AnswerFormsCopyWith(
+          AnswerForms value, $Res Function(AnswerForms) then) =
+      _$AnswerFormsCopyWithImpl<$Res, AnswerForms>;
+  @useResult
+  $Res call({int hotItemId});
+}
+
+/// @nodoc
+class _$AnswerFormsCopyWithImpl<$Res, $Val extends AnswerForms>
+    implements $AnswerFormsCopyWith<$Res> {
+  _$AnswerFormsCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  /// Create a copy of AnswerForms
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? hotItemId = null,
+  }) {
+    return _then(_value.copyWith(
+      hotItemId: null == hotItemId
+          ? _value.hotItemId
+          : hotItemId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$AnswerFormsImplCopyWith<$Res>
+    implements $AnswerFormsCopyWith<$Res> {
+  factory _$$AnswerFormsImplCopyWith(
+          _$AnswerFormsImpl value, $Res Function(_$AnswerFormsImpl) then) =
+      __$$AnswerFormsImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int hotItemId});
+}
+
+/// @nodoc
+class __$$AnswerFormsImplCopyWithImpl<$Res>
+    extends _$AnswerFormsCopyWithImpl<$Res, _$AnswerFormsImpl>
+    implements _$$AnswerFormsImplCopyWith<$Res> {
+  __$$AnswerFormsImplCopyWithImpl(
+      _$AnswerFormsImpl _value, $Res Function(_$AnswerFormsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AnswerForms
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? hotItemId = null,
+  }) {
+    return _then(_$AnswerFormsImpl(
+      hotItemId: null == hotItemId
+          ? _value.hotItemId
+          : hotItemId // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$AnswerFormsImpl implements _AnswerForms {
+  const _$AnswerFormsImpl({required this.hotItemId});
+
+  factory _$AnswerFormsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AnswerFormsImplFromJson(json);
+
+  @override
+  final int hotItemId;
+
+  @override
+  String toString() {
+    return 'AnswerForms(hotItemId: $hotItemId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$AnswerFormsImpl &&
+            (identical(other.hotItemId, hotItemId) ||
+                other.hotItemId == hotItemId));
+  }
+
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  int get hashCode => Object.hash(runtimeType, hotItemId);
+
+  /// Create a copy of AnswerForms
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$AnswerFormsImplCopyWith<_$AnswerFormsImpl> get copyWith =>
+      __$$AnswerFormsImplCopyWithImpl<_$AnswerFormsImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$AnswerFormsImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AnswerForms implements AnswerForms {
+  const factory _AnswerForms({required final int hotItemId}) =
+      _$AnswerFormsImpl;
+
+  factory _AnswerForms.fromJson(Map<String, dynamic> json) =
+      _$AnswerFormsImpl.fromJson;
+
+  @override
+  int get hotItemId;
+
+  /// Create a copy of AnswerForms
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$AnswerFormsImplCopyWith<_$AnswerFormsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
