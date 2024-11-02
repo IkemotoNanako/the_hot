@@ -58,7 +58,7 @@ void main() {
       when(mockRepository.questionAll).thenReturn([
         generateQuestion(1, {1: 1, 2: 2, 3: 3}),
         generateQuestion(2, {1: -1, 2: -2, 3: -3}),
-        generateQuestion(3, {1: -8, 2: -14, 3: -12}),
+        generateQuestion(3, {1: -7, 2: -14, 3: -12}),
       ]);
 
       // テストデータ

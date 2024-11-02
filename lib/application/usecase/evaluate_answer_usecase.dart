@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter_hackathon_2024/domain/answer.dart';
 import 'package:flutter_hackathon_2024/domain/question_result.dart';
 import 'package:flutter_hackathon_2024/infrastructure/repository/common_repository.dart';
@@ -39,9 +41,14 @@ class EvaluateAnswerUsecase {
         return previousValue;
       },
     );
-    // todo: supabaseに保存
 
     final answer = findItemIdWithMaxWeight(hotItemWeight);
+
+    if (answer == null) {
+      throw Exception('Answer not found');
+    }
+
+    _repository.setAnswer(AnswerForms(hotItemId: answer));
 
     return Answer(
       hotItem: hotItems.firstWhere((element) => element.id == answer),
@@ -60,6 +67,12 @@ class EvaluateAnswerUsecase {
       if (map[key]! > maxWeight) {
         maxWeight = map[key]!;
         maxItemId = key;
+      } else if (map[key] == maxWeight) {
+        // ランダムで選択
+        if (Random().nextBool()) {
+          maxWeight = map[key]!;
+          maxItemId = key;
+        }
       }
     }
 
