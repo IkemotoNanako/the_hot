@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flame/game.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:flutter/material.dart';
@@ -11,11 +13,11 @@ class HotGame extends FlameGame with RiverpodGameMixin {
   @override
   Future<void> onLoad() async {
     await super.onLoad();
-    add(SampleComponent());
     final snap = ref.read(answersControllerProvider);
     snap.listen((event) {
-      print('event');
-      add(SampleComponent());
+      // ランダムに位置を決める
+      final x = size.x / 2 + size.x * (Random().nextDouble() - 0.5);
+      add(SampleComponent(position: Vector2(x, 0)));
     });
   }
 }
