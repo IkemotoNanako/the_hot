@@ -1,6 +1,7 @@
 import 'package:flame/game.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hackathon_2024/ui/controller/answers_controller.dart';
+import 'package:flutter_hackathon_2024/ui/page/game/hot_game.dart';
 import 'package:flutter_hackathon_2024/ui/router/router.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -38,16 +39,8 @@ class _Game extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    return GameWidget(game: MyGame());
+    return GameWidget(game: HotGame());
   }
-}
-
-class MyGame extends FlameGame {
-  @override
-  Color backgroundColor() => Colors.white;
-
-  @override
-  Future<void> onLoad() async {}
 }
 
 class _AnswerList extends ConsumerWidget {
