@@ -42,9 +42,9 @@ class QuestionController extends _$QuestionController {
     state = state.copyWith(
       hotItem: const HotItem(
         id: 1,
-        title: 'name',
-        description: 'description',
-        imageUrl: 'imageUrl',
+        title: 'あわあわビール',
+        description: 'あわあわビールって最高だよね。大人の味だね。幸せだね。注ぐのも楽しいよね。',
+        imageUrl: 'https://placehold.jp/1600x900.png',
         searchCondition: SearchCondition(
           latitude: 0,
           longitude: 0,
