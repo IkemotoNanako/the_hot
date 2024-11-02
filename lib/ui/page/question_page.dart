@@ -59,7 +59,7 @@ class _HotItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(left: 8, right: 8, top: 16),
       child: Column(
         children: [
           ClipRRect(
