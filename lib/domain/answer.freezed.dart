@@ -22,7 +22,7 @@ Answer _$AnswerFromJson(Map<String, dynamic> json) {
 mixin _$Answer {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'hot_item_id')
-  String get hotItemId => throw _privateConstructorUsedError;
+  int get hotItemId => throw _privateConstructorUsedError;
 
   /// Serializes this Answer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $AnswerCopyWith<$Res> {
   factory $AnswerCopyWith(Answer value, $Res Function(Answer) then) =
       _$AnswerCopyWithImpl<$Res, Answer>;
   @useResult
-  $Res call({int id, @JsonKey(name: 'hot_item_id') String hotItemId});
+  $Res call({int id, @JsonKey(name: 'hot_item_id') int hotItemId});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
       hotItemId: null == hotItemId
           ? _value.hotItemId
           : hotItemId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ) as $Val);
   }
 }
@@ -79,7 +79,7 @@ abstract class _$$AnswerImplCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       __$$AnswerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, @JsonKey(name: 'hot_item_id') String hotItemId});
+  $Res call({int id, @JsonKey(name: 'hot_item_id') int hotItemId});
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class __$$AnswerImplCopyWithImpl<$Res>
       hotItemId: null == hotItemId
           ? _value.hotItemId
           : hotItemId // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
     ));
   }
 }
@@ -125,7 +125,7 @@ class _$AnswerImpl implements _Answer {
   final int id;
   @override
   @JsonKey(name: 'hot_item_id')
-  final String hotItemId;
+  final int hotItemId;
 
   @override
   String toString() {
@@ -165,7 +165,7 @@ class _$AnswerImpl implements _Answer {
 abstract class _Answer implements Answer {
   const factory _Answer(
           {required final int id,
-          @JsonKey(name: 'hot_item_id') required final String hotItemId}) =
+          @JsonKey(name: 'hot_item_id') required final int hotItemId}) =
       _$AnswerImpl;
 
   factory _Answer.fromJson(Map<String, dynamic> json) = _$AnswerImpl.fromJson;
@@ -174,7 +174,7 @@ abstract class _Answer implements Answer {
   int get id;
   @override
   @JsonKey(name: 'hot_item_id')
-  String get hotItemId;
+  int get hotItemId;
 
   /// Create a copy of Answer
   /// with the given fields replaced by the non-null parameter values.

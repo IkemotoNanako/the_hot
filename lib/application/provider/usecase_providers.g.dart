@@ -66,5 +66,56 @@ final signOutUsecaseProvider = AutoDisposeProvider<SignOutUsecase>.internal(
 );
 
 typedef SignOutUsecaseRef = AutoDisposeProviderRef<SignOutUsecase>;
+String _$evaluateAnswerUsecaseHash() =>
+    r'6215c240f41cdf8e86e7033ad624cf070d5b4769';
+
+/// See also [evaluateAnswerUsecase].
+@ProviderFor(evaluateAnswerUsecase)
+final evaluateAnswerUsecaseProvider =
+    AutoDisposeProvider<EvaluateAnswerUsecase>.internal(
+  evaluateAnswerUsecase,
+  name: r'evaluateAnswerUsecaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$evaluateAnswerUsecaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef EvaluateAnswerUsecaseRef
+    = AutoDisposeProviderRef<EvaluateAnswerUsecase>;
+String _$getMasterDataUsecaseHash() =>
+    r'1e7635113e92ef52af3a7af24beb0b33afe71ee9';
+
+/// See also [getMasterDataUsecase].
+@ProviderFor(getMasterDataUsecase)
+final getMasterDataUsecaseProvider =
+    AutoDisposeProvider<GetMasterDataUsecase>.internal(
+  getMasterDataUsecase,
+  name: r'getMasterDataUsecaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getMasterDataUsecaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetMasterDataUsecaseRef = AutoDisposeProviderRef<GetMasterDataUsecase>;
+String _$getHotItemUsecaseHash() => r'3e808a8168d1c52b2bac0b7da46f92989d3d344d';
+
+/// See also [getHotItemUsecase].
+@ProviderFor(getHotItemUsecase)
+final getHotItemUsecaseProvider =
+    AutoDisposeProvider<GetMasterDataUsecase>.internal(
+  getHotItemUsecase,
+  name: r'getHotItemUsecaseProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$getHotItemUsecaseHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef GetHotItemUsecaseRef = AutoDisposeProviderRef<GetMasterDataUsecase>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

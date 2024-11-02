@@ -7,7 +7,7 @@ part 'answer.g.dart';
 class Answer with _$Answer {
   const factory Answer({
     required int id,
-    @JsonKey(name: 'hot_item_id') required String hotItemId,
+    @JsonKey(name: 'hot_item_id') required int hotItemId,
   }) = _Answer;
 
   factory Answer.fromJson(Map<String, dynamic> json) => _$AnswerFromJson(json);
