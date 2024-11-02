@@ -1,10 +1,13 @@
-import 'package:flame/game.dart';
+import 'package:flame_riverpod/flame_riverpod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hackathon_2024/ui/controller/answers_controller.dart';
 import 'package:flutter_hackathon_2024/ui/page/game/hot_game.dart';
 import 'package:flutter_hackathon_2024/ui/router/router.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+final GlobalKey<RiverpodAwareGameWidgetState> gameWidgetKey =
+    GlobalKey<RiverpodAwareGameWidgetState>();
 
 class TopPage extends ConsumerWidget {
   const TopPage({super.key});
@@ -39,7 +42,10 @@ class _Game extends ConsumerWidget {
     BuildContext context,
     WidgetRef ref,
   ) {
-    return GameWidget(game: HotGame());
+    return RiverpodAwareGameWidget(
+      game: HotGame(),
+      key: gameWidgetKey,
+    );
   }
 }
 
