@@ -1,5 +1,7 @@
 import 'dart:math';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:http/http.dart' as http;
+import 'dart:ui' as ui show Image;
 
 import 'package:flame/game.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
@@ -7,6 +9,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hackathon_2024/application/provider/usecase_providers.dart';
 import 'package:flutter_hackathon_2024/ui/controller/answers_controller.dart';
 import 'package:flutter_hackathon_2024/ui/page/game/sample_component.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+part 'hot_game.g.dart';
 
 class HotGame extends FlameGame with RiverpodGameMixin {
   @override
@@ -16,11 +21,16 @@ class HotGame extends FlameGame with RiverpodGameMixin {
   Future<void> onLoad() async {
     await super.onLoad();
     await ref.read(listenAnswersUsecaseProvider).fetchMasterData();
-    final response = await http.get(Uri.parse(
-        'https://udulgbhamonxiegmurxx.supabase.co/storage/v1/object/public/hot_items/flutter.png?t=2024-11-02T14%3A19%3A08.479Z'));
-    final image = await decodeImageFromList(response.bodyBytes);
     final snap = ref.read(answersControllerProvider);
-    snap.listen((event) {
+    bool isFirstGet = true;
+    snap.listen((event) async {
+      if (isFirstGet) {
+        isFirstGet = false;
+        return;
+      }
+      final imageUrl = event.last.hotItem.imageUrl;
+      final image = await ref.read(imageProvider(imageUrl: imageUrl).future);
+
       // ランダムに位置を決める
       final x = size.x / 2 + size.x * (Random().nextDouble() - 0.5) * 0.9;
 
@@ -39,4 +49,10 @@ class HotGame extends FlameGame with RiverpodGameMixin {
       ));
     });
   }
+}
+
+@Riverpod(keepAlive: true)
+Future<ui.Image> image(Ref ref, {required String imageUrl}) async {
+  final response = await http.get(Uri.parse(imageUrl));
+  return await decodeImageFromList(response.bodyBytes);
 }
