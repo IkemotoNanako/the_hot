@@ -35,18 +35,14 @@ class QuestionPage extends ConsumerWidget {
                 : const SizedBox.shrink(),
           ],
         ),
-        body: Stack(
-          children: [
-            hotItem == null
-                ? _SwipeCard(
-                    questionList: state.questionList,
-                    onEvaluate: (questionResult) {
-                      controller.evaluateAnswer(questionResult);
-                    },
-                  )
-                : _HotItemCard(hotItem: hotItem),
-          ],
-        ),
+        body: hotItem == null
+            ? _SwipeCard(
+                questionList: state.questionList,
+                onEvaluate: (questionResult) {
+                  controller.evaluateAnswer(questionResult);
+                },
+              )
+            : _HotItemCard(hotItem: hotItem),
       ),
     );
   }
