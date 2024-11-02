@@ -20,9 +20,18 @@ class QuestionController extends _$QuestionController {
   List<Question> _fetch() {
     // return ref.read(randomizeQuestionUseCaseProvider).execute();
     return [
-      const Question(id: 1, imageUrl: '質問1', description: '質問1の説明', weight: {}),
-      const Question(id: 2, imageUrl: '質問2', description: '質問2の説明', weight: {}),
-      const Question(id: 3, imageUrl: '質問3', description: '質問3の説明', weight: {}),
+      const Question(
+          id: 1,
+          imageUrl: 'https://placehold.jp/1600x900.png',
+          description: 'ここに質問がくるよ質問質問',
+          weight: {}),
+      const Question(
+          id: 2, imageUrl: '', description: 'ここに質問がくるよ質問質問', weight: {}),
+      const Question(
+          id: 3,
+          imageUrl: 'https://placehold.jp/1600x900.png',
+          description: 'ここに質問がくるよ質問質問',
+          weight: {}),
     ];
   }
 

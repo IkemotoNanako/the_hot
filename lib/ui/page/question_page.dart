@@ -7,6 +7,7 @@ import 'package:flutter_hackathon_2024/domain/question_result.dart';
 import 'package:flutter_hackathon_2024/ui/controller/question_controller.dart';
 import 'package:flutter_hackathon_2024/ui/router/router.dart';
 import 'package:flutter_hackathon_2024/ui/style/custom_color_theme.dart';
+import 'package:flutter_hackathon_2024/ui/style/custom_text_theme.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:swipable_stack/swipable_stack.dart';
@@ -22,31 +23,27 @@ class QuestionPage extends ConsumerWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          actions: [
-            state.hotItem != null
-                ? IconButton(
+        appBar: state.hotItem != null
+            ? AppBar(
+                automaticallyImplyLeading: false,
+                actions: [
+                  IconButton(
                     icon: const Icon(Icons.home),
                     onPressed: () {
                       context.go(const TopPageRoute().location);
                     },
-                  )
-                : const SizedBox.shrink(),
-          ],
-        ),
-        body: Stack(
-          children: [
-            hotItem == null
-                ? _SwipeCard(
-                    questionList: state.questionList,
-                    onEvaluate: (questionResult) {
-                      controller.evaluateAnswer(questionResult);
-                    },
-                  )
-                : _HotItemCard(hotItem: hotItem),
-          ],
-        ),
+                  ),
+                ],
+              )
+            : null,
+        body: hotItem == null
+            ? _SwipeCard(
+                questionList: state.questionList,
+                onEvaluate: (questionResult) {
+                  controller.evaluateAnswer(questionResult);
+                },
+              )
+            : _HotItemCard(hotItem: hotItem),
       ),
     );
   }
@@ -99,7 +96,7 @@ class _SwipeCard extends StatelessWidget {
         final opacity = min(properties.swipeProgress, 1.0);
         final isRight = properties.direction == SwipeDirection.right;
         return Opacity(
-          opacity: isRight ? opacity : 0,
+          opacity: opacity,
           child: Container(
             color: isRight ? CustomColorTheme.primary : CustomColorTheme.accent,
           ),
@@ -116,8 +113,28 @@ class _QuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: CustomColorTheme.accentContainer,
+    return Column(
+      children: [
+        Image.network(
+          question.imageUrl,
+          height: MediaQuery.of(context).size.height * 0.7,
+          fit: BoxFit.cover,
+          errorBuilder: (context, error, stackTrace) {
+            return const SizedBox.shrink();
+          },
+        ),
+        Expanded(
+          child: Container(
+            color: CustomColorTheme.white,
+            child: Center(
+              child: Text(
+                question.description,
+                style: customTextTheme.bodyLarge,
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
