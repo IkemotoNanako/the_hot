@@ -1,5 +1,6 @@
 import 'package:flutter_hackathon_2024/application/usecase/evaluate_answer_usecase.dart';
 import 'package:flutter_hackathon_2024/application/usecase/get_master_data_usecase.dart';
+import 'package:flutter_hackathon_2024/application/usecase/randomize_question_usecase.dart';
 import 'package:flutter_hackathon_2024/application/usecase/sample_usecase.dart';
 import 'package:flutter_hackathon_2024/application/usecase/sign_in_usecase.dart';
 import 'package:flutter_hackathon_2024/application/usecase/sign_out_usecase.dart';
@@ -42,4 +43,10 @@ GetMasterDataUsecase getMasterDataUsecase(GetMasterDataUsecaseRef ref) {
 @riverpod
 GetMasterDataUsecase getHotItemUsecase(GetHotItemUsecaseRef ref) {
   return GetMasterDataUsecase(ref.read(commonRepositoryProvider));
+}
+
+@riverpod
+RandomizeQuestionUseCase randomizeQuestionUseCase(
+    RandomizeQuestionUseCaseRef ref) {
+  return RandomizeQuestionUseCase(ref.read(commonRepositoryProvider));
 }
