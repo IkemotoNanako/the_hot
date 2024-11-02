@@ -18,9 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SampleState {
   List<Todo> get sampleList => throw _privateConstructorUsedError;
 
-  /// Create a copy of SampleState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   $SampleStateCopyWith<SampleState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -44,8 +42,6 @@ class _$SampleStateCopyWithImpl<$Res, $Val extends SampleState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of SampleState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -79,8 +75,6 @@ class __$$SampleStateImplCopyWithImpl<$Res>
       _$SampleStateImpl _value, $Res Function(_$SampleStateImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of SampleState
-  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -127,9 +121,7 @@ class _$SampleStateImpl implements _SampleState {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_sampleList));
 
-  /// Create a copy of SampleState
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$SampleStateImplCopyWith<_$SampleStateImpl> get copyWith =>
@@ -142,11 +134,8 @@ abstract class _SampleState implements SampleState {
 
   @override
   List<Todo> get sampleList;
-
-  /// Create a copy of SampleState
-  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
+  @JsonKey(ignore: true)
   _$$SampleStateImplCopyWith<_$SampleStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
