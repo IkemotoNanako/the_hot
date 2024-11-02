@@ -13,10 +13,10 @@ class CommonRepository {
 
   List<Question> get questionAll => _questionAll!;
 
-  Future<List<HotItem>> fetchHotItemAll() async {
+  Future<void> fetchHotItemAll() async {
     try {
       final response = await supabase.from(tableNameHotItems).select();
-      return response.map((json) {
+      _hotItemAll = response.map((json) {
         return HotItem.fromJson(json);
       }).toList();
     } catch (e) {
@@ -25,10 +25,10 @@ class CommonRepository {
     }
   }
 
-  Future<List<Question>> fetchQuestionAll() async {
+  Future<void> fetchQuestionAll() async {
     try {
       final response = await supabase.from(tableNameQuestions).select();
-      return response.map((json) {
+      _questionAll = response.map((json) {
         return Question.fromJson(json);
       }).toList();
     } catch (e) {
