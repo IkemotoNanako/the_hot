@@ -26,10 +26,14 @@ class CustomOutlinedButton extends StatelessWidget {
       style: OutlinedButton.styleFrom(
         overlayColor: buttonColor,
         side: BorderSide(color: buttonColor),
+        padding: const EdgeInsets.symmetric(
+          vertical: 16,
+          horizontal: 46,
+        ),
       ),
       child: Text(
         label,
-        style: customTextTheme.labelMedium?.copyWith(
+        style: customTextTheme.headlineLarge?.copyWith(
           color: buttonColor,
         ),
       ),
