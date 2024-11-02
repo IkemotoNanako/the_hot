@@ -21,9 +21,9 @@ Question _$QuestionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Question {
   int get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   Map<int, int> get weight => throw _privateConstructorUsedError;
-  String get imageUrl => throw _privateConstructorUsedError;
 
   /// Serializes this Question to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,8 +40,7 @@ abstract class $QuestionCopyWith<$Res> {
   factory $QuestionCopyWith(Question value, $Res Function(Question) then) =
       _$QuestionCopyWithImpl<$Res, Question>;
   @useResult
-  $Res call(
-      {int id, String description, Map<int, int> weight, String imageUrl});
+  $Res call({int id, String title, String description, Map<int, int> weight});
 }
 
 /// @nodoc
@@ -60,15 +59,19 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? description = null,
     Object? weight = null,
-    Object? imageUrl = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -77,10 +80,6 @@ class _$QuestionCopyWithImpl<$Res, $Val extends Question>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as Map<int, int>,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
     ) as $Val);
   }
 }
@@ -93,8 +92,7 @@ abstract class _$$QuestionImplCopyWith<$Res>
       __$$QuestionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {int id, String description, Map<int, int> weight, String imageUrl});
+  $Res call({int id, String title, String description, Map<int, int> weight});
 }
 
 /// @nodoc
@@ -111,15 +109,19 @@ class __$$QuestionImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? description = null,
     Object? weight = null,
-    Object? imageUrl = null,
   }) {
     return _then(_$QuestionImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
       description: null == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -128,10 +130,6 @@ class __$$QuestionImplCopyWithImpl<$Res>
           ? _value._weight
           : weight // ignore: cast_nullable_to_non_nullable
               as Map<int, int>,
-      imageUrl: null == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -141,9 +139,9 @@ class __$$QuestionImplCopyWithImpl<$Res>
 class _$QuestionImpl implements _Question {
   const _$QuestionImpl(
       {required this.id,
+      required this.title,
       required this.description,
-      required final Map<int, int> weight,
-      required this.imageUrl})
+      required final Map<int, int> weight})
       : _weight = weight;
 
   factory _$QuestionImpl.fromJson(Map<String, dynamic> json) =>
@@ -151,6 +149,8 @@ class _$QuestionImpl implements _Question {
 
   @override
   final int id;
+  @override
+  final String title;
   @override
   final String description;
   final Map<int, int> _weight;
@@ -162,11 +162,8 @@ class _$QuestionImpl implements _Question {
   }
 
   @override
-  final String imageUrl;
-
-  @override
   String toString() {
-    return 'Question(id: $id, description: $description, weight: $weight, imageUrl: $imageUrl)';
+    return 'Question(id: $id, title: $title, description: $description, weight: $weight)';
   }
 
   @override
@@ -175,17 +172,16 @@ class _$QuestionImpl implements _Question {
         (other.runtimeType == runtimeType &&
             other is _$QuestionImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            const DeepCollectionEquality().equals(other._weight, _weight) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl));
+            const DeepCollectionEquality().equals(other._weight, _weight));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, description,
-      const DeepCollectionEquality().hash(_weight), imageUrl);
+  int get hashCode => Object.hash(runtimeType, id, title, description,
+      const DeepCollectionEquality().hash(_weight));
 
   /// Create a copy of Question
   /// with the given fields replaced by the non-null parameter values.
@@ -206,9 +202,9 @@ class _$QuestionImpl implements _Question {
 abstract class _Question implements Question {
   const factory _Question(
       {required final int id,
+      required final String title,
       required final String description,
-      required final Map<int, int> weight,
-      required final String imageUrl}) = _$QuestionImpl;
+      required final Map<int, int> weight}) = _$QuestionImpl;
 
   factory _Question.fromJson(Map<String, dynamic> json) =
       _$QuestionImpl.fromJson;
@@ -216,11 +212,11 @@ abstract class _Question implements Question {
   @override
   int get id;
   @override
+  String get title;
+  @override
   String get description;
   @override
   Map<int, int> get weight;
-  @override
-  String get imageUrl;
 
   /// Create a copy of Question
   /// with the given fields replaced by the non-null parameter values.
