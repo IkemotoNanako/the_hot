@@ -58,6 +58,9 @@ class CommonRepository {
           )
           .toList(),
     );
+    if (_hotItemAll == null) {
+      return const Stream.empty();
+    }
     // ResponseをAnswerにマッピング
     return response.map(
       (event) => event
