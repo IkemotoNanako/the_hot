@@ -13,7 +13,8 @@ final answersControllerProvider = Provider<Stream<List<Answer>>>((ref) {
               title: "title",
               description: "description",
               imageUrl: "imageUrl",
-              searchCondition: SearchCondition(latitude: 0, longitude: 0)));
+              searchCondition:
+                  const SearchCondition(latitude: 0, longitude: 0)));
     });
   });
   // return ref.watch(listenAnswersUsecaseProvider).listenAnswers();
