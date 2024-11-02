@@ -1,4 +1,0 @@
-enum ButtonColorType {
-  primary,
-  accent,
-}
