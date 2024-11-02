@@ -20,7 +20,7 @@ class HotGame extends FlameGame with RiverpodGameMixin {
     final snap = ref.read(answersControllerProvider);
     snap.listen((event) {
       // ランダムに位置を決める
-      final x = size.x / 2 + size.x * (Random().nextDouble() - 0.5);
+      final x = size.x / 2 + size.x * (Random().nextDouble() - 0.5) * 0.9;
 
       // ランダムにサイズを決める 0.8~1.2倍
       final scale = 0.8 + Random().nextDouble() * 0.4;
