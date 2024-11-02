@@ -18,7 +18,7 @@ class Answer with _$Answer {
 @freezed
 class AnswerForms with _$AnswerForms {
   const factory AnswerForms({
-    required int hotItemId,
+    @JsonKey(name: 'hot_item_id') required int hotItemId,
   }) = _AnswerForms;
 
   factory AnswerForms.fromJson(Map<String, dynamic> json) =>
