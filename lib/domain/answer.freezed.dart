@@ -21,8 +21,7 @@ Answer _$AnswerFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Answer {
   int get id => throw _privateConstructorUsedError;
-  @JsonKey(name: 'hot_item_id')
-  int get hotItemId => throw _privateConstructorUsedError;
+  HotItem get hotItem => throw _privateConstructorUsedError;
 
   /// Serializes this Answer to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +37,9 @@ abstract class $AnswerCopyWith<$Res> {
   factory $AnswerCopyWith(Answer value, $Res Function(Answer) then) =
       _$AnswerCopyWithImpl<$Res, Answer>;
   @useResult
-  $Res call({int id, @JsonKey(name: 'hot_item_id') int hotItemId});
+  $Res call({int id, HotItem hotItem});
+
+  $HotItemCopyWith<$Res> get hotItem;
 }
 
 /// @nodoc
@@ -57,18 +58,28 @@ class _$AnswerCopyWithImpl<$Res, $Val extends Answer>
   @override
   $Res call({
     Object? id = null,
-    Object? hotItemId = null,
+    Object? hotItem = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      hotItemId: null == hotItemId
-          ? _value.hotItemId
-          : hotItemId // ignore: cast_nullable_to_non_nullable
-              as int,
+      hotItem: null == hotItem
+          ? _value.hotItem
+          : hotItem // ignore: cast_nullable_to_non_nullable
+              as HotItem,
     ) as $Val);
+  }
+
+  /// Create a copy of Answer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $HotItemCopyWith<$Res> get hotItem {
+    return $HotItemCopyWith<$Res>(_value.hotItem, (value) {
+      return _then(_value.copyWith(hotItem: value) as $Val);
+    });
   }
 }
 
@@ -79,7 +90,10 @@ abstract class _$$AnswerImplCopyWith<$Res> implements $AnswerCopyWith<$Res> {
       __$$AnswerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, @JsonKey(name: 'hot_item_id') int hotItemId});
+  $Res call({int id, HotItem hotItem});
+
+  @override
+  $HotItemCopyWith<$Res> get hotItem;
 }
 
 /// @nodoc
@@ -96,17 +110,17 @@ class __$$AnswerImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
-    Object? hotItemId = null,
+    Object? hotItem = null,
   }) {
     return _then(_$AnswerImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      hotItemId: null == hotItemId
-          ? _value.hotItemId
-          : hotItemId // ignore: cast_nullable_to_non_nullable
-              as int,
+      hotItem: null == hotItem
+          ? _value.hotItem
+          : hotItem // ignore: cast_nullable_to_non_nullable
+              as HotItem,
     ));
   }
 }
@@ -114,9 +128,7 @@ class __$$AnswerImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$AnswerImpl implements _Answer {
-  const _$AnswerImpl(
-      {required this.id,
-      @JsonKey(name: 'hot_item_id') required this.hotItemId});
+  const _$AnswerImpl({required this.id, required this.hotItem});
 
   factory _$AnswerImpl.fromJson(Map<String, dynamic> json) =>
       _$$AnswerImplFromJson(json);
@@ -124,12 +136,11 @@ class _$AnswerImpl implements _Answer {
   @override
   final int id;
   @override
-  @JsonKey(name: 'hot_item_id')
-  final int hotItemId;
+  final HotItem hotItem;
 
   @override
   String toString() {
-    return 'Answer(id: $id, hotItemId: $hotItemId)';
+    return 'Answer(id: $id, hotItem: $hotItem)';
   }
 
   @override
@@ -138,13 +149,12 @@ class _$AnswerImpl implements _Answer {
         (other.runtimeType == runtimeType &&
             other is _$AnswerImpl &&
             (identical(other.id, id) || other.id == id) &&
-            (identical(other.hotItemId, hotItemId) ||
-                other.hotItemId == hotItemId));
+            (identical(other.hotItem, hotItem) || other.hotItem == hotItem));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, hotItemId);
+  int get hashCode => Object.hash(runtimeType, id, hotItem);
 
   /// Create a copy of Answer
   /// with the given fields replaced by the non-null parameter values.
@@ -164,17 +174,14 @@ class _$AnswerImpl implements _Answer {
 
 abstract class _Answer implements Answer {
   const factory _Answer(
-          {required final int id,
-          @JsonKey(name: 'hot_item_id') required final int hotItemId}) =
-      _$AnswerImpl;
+      {required final int id, required final HotItem hotItem}) = _$AnswerImpl;
 
   factory _Answer.fromJson(Map<String, dynamic> json) = _$AnswerImpl.fromJson;
 
   @override
   int get id;
   @override
-  @JsonKey(name: 'hot_item_id')
-  int get hotItemId;
+  HotItem get hotItem;
 
   /// Create a copy of Answer
   /// with the given fields replaced by the non-null parameter values.
