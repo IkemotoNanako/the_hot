@@ -28,6 +28,7 @@ dependencies:
   riverpod_generator: ^2.4.0
   supabase_flutter: ^2.8.0
   swipable_stack: ^2.0.0
+  flutter_deck: ^0.16.1
 
 dev_dependencies:
   flutter_test:
