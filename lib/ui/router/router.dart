@@ -17,10 +17,10 @@ part 'router.g.dart';
 
 @riverpod
 GoRouter appRouter(Ref ref) {
-  final unsignedInRouteLocations = [
-    // const SignInPageRoute().location,
-    // const SignUpPageRoute().location,
-  ];
+  // final unsignedInRouteLocations = [
+  //   // const SignInPageRoute().location,
+  //   // const SignUpPageRoute().location,
+  // ];
 
   /// サインイン状態を監視する
   final signedInNotifier = ref.watch(_signedInNotifierProvider);
@@ -30,17 +30,17 @@ GoRouter appRouter(Ref ref) {
     initialLocation: const TopPageRoute().location,
     refreshListenable: signedInNotifier,
     redirect: (context, state) {
-      final currentLocation = state.matchedLocation;
-      if (!signedInNotifier.value) {
-        if (!unsignedInRouteLocations.contains(currentLocation)) {
-          return const SignInPageRoute().location;
-        }
-      } else {
-        if (unsignedInRouteLocations.contains(currentLocation)) {
-          return const TopPageRoute().location;
-        }
-      }
-      return null;
+      // final currentLocation = state.matchedLocation;
+      // if (!signedInNotifier.value) {
+      //   if (!unsignedInRouteLocations.contains(currentLocation)) {
+      //     return const SignInPageRoute().location;
+      //   }
+      // } else {
+      //   if (unsignedInRouteLocations.contains(currentLocation)) {
+      //     return const TopPageRoute().location;
+      //   }
+      // }
+      return const TopPageRoute().location;
     },
   );
 
