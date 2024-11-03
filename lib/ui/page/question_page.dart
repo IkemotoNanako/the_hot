@@ -225,13 +225,17 @@ class _QuestionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Image.network(
-          question.imageUrl,
-          height: MediaQuery.of(context).size.height * 0.7,
-          fit: BoxFit.cover,
-          errorBuilder: (context, error, stackTrace) {
-            return const SizedBox.shrink();
-          },
+        Container(
+          width: MediaQuery.of(context).size.width,
+          color: CustomColorTheme.white,
+          child: Image.network(
+            question.imageUrl,
+            height: MediaQuery.of(context).size.height * 0.7,
+            fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) {
+              return const SizedBox.shrink();
+            },
+          ),
         ),
         Expanded(
           child: Container(
@@ -243,7 +247,7 @@ class _QuestionCard extends StatelessWidget {
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }
