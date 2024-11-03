@@ -33,7 +33,7 @@ class CustomOutlinedButton extends StatelessWidget {
       ),
       child: Text(
         label,
-        style: customTextTheme.headlineLarge?.copyWith(
+        style: customTextTheme.headlineMedium?.copyWith(
           color: buttonColor,
         ),
       ),

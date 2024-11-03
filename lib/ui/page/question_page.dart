@@ -1,9 +1,11 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_hackathon_2024/domain/enum/button_color_type.dart';
 import 'package:flutter_hackathon_2024/domain/hot_item.dart';
 import 'package:flutter_hackathon_2024/domain/question.dart';
 import 'package:flutter_hackathon_2024/domain/question_result.dart';
+import 'package:flutter_hackathon_2024/ui/component/custom_outlined_button.dart';
 import 'package:flutter_hackathon_2024/ui/controller/question_controller.dart';
 import 'package:flutter_hackathon_2024/ui/router/router.dart';
 import 'package:flutter_hackathon_2024/ui/style/custom_color_theme.dart';
@@ -23,22 +25,6 @@ class QuestionPage extends ConsumerWidget {
     return PopScope(
       canPop: false,
       child: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: state.hotItem != null
-            ? AppBar(
-                surfaceTintColor: CustomColorTheme.transparent,
-                backgroundColor: CustomColorTheme.transparent,
-                automaticallyImplyLeading: false,
-                actions: [
-                  IconButton(
-                    icon: const Icon(Icons.home),
-                    onPressed: () {
-                      context.go(const TopPageRoute().location);
-                    },
-                  ),
-                ],
-              )
-            : null,
         body: hotItem == null
             ? _SwipeCard(
                 questionList: state.questionList,
@@ -86,6 +72,14 @@ class _HotItemCard extends StatelessWidget {
               Text(
                 hotItem.description,
                 style: customTextTheme.bodyLarge,
+              ),
+              const SizedBox(height: 32),
+              CustomOutlinedButton(
+                label: 'ホームに戻る',
+                colorType: ButtonColorType.primary,
+                onPressed: () {
+                  context.go(const TopPageRoute().location);
+                },
               ),
               const SizedBox(height: 32),
               //   SizedBox(
