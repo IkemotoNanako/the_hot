@@ -55,11 +55,18 @@ class GraphPage extends ConsumerWidget {
               showTitles: true,
               getTitlesWidget: (value, meta) => SideTitleWidget(
                 axisSide: meta.axisSide,
-                child: Text(
-                  data.countMap[value.toInt()]?.$2.title ?? '名無し',
-                  style: customTextTheme.headlineLarge?.copyWith(
-                    color: Colors.black,
-                  ),
+                child: Column(
+                  children: [
+                    Image.network(
+                      data.countMap[value.toInt()]?.$2.imageUrl ?? '',
+                      height: 60,
+                      width: 60,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return const SizedBox.shrink();
+                      },
+                    ),
+                  ],
                 ),
               ),
             ),
