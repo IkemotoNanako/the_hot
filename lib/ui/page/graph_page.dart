@@ -114,7 +114,7 @@ extension on List<Answer> {
   // データの集計
   Map<int, (int, HotItem)> get countMap {
     final map = <int, (int, HotItem)>{
-      for (var i = 0; i < 14; i++)
+      for (var i = 1; i < 15; i++)
         i: (
           0,
           HotItem(
