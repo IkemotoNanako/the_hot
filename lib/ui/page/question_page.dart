@@ -241,9 +241,12 @@ class _QuestionCard extends StatelessWidget {
           child: Container(
             color: CustomColorTheme.white,
             child: Center(
-              child: Text(
-                question.description,
-                style: customTextTheme.bodyLarge,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  question.description,
+                  style: customTextTheme.bodyLarge,
+                ),
               ),
             ),
           ),
