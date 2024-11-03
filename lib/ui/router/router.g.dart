@@ -16,6 +16,10 @@ RouteBase get $topPageRoute => GoRouteData.$route(
       factory: $TopPageRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
+          path: 'graph',
+          factory: $GraphRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'question',
           factory: $QuestionPageRouteExtension._fromState,
           routes: [
@@ -47,6 +51,23 @@ extension $TopPageRouteExtension on TopPageRoute {
 
   String get location => GoRouteData.$location(
         '/top_page',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $GraphRouteExtension on GraphRoute {
+  static GraphRoute _fromState(GoRouterState state) => const GraphRoute();
+
+  String get location => GoRouteData.$location(
+        '/top_page/graph',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -200,7 +221,7 @@ extension $SignUpPageRouteExtension on SignUpPageRoute {
 // RiverpodGenerator
 // **************************************************************************
 
-String _$appRouterHash() => r'275136e99245f25d73574fc600246f38907d02df';
+String _$appRouterHash() => r'13362aee5536676b2e45ee763f71963896ae3191';
 
 /// See also [appRouter].
 @ProviderFor(appRouter)
@@ -213,6 +234,8 @@ final appRouterProvider = AutoDisposeProvider<GoRouter>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef AppRouterRef = AutoDisposeProviderRef<GoRouter>;
 String _$signedInNotifierHash() => r'0f220f40781fc49bf4f1a67996d1eb063a0f7a70';
 
@@ -229,6 +252,8 @@ final _signedInNotifierProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef _SignedInNotifierRef = AutoDisposeProviderRef<Raw<_SignedInNotifier>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
