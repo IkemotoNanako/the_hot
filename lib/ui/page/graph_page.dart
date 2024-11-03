@@ -13,9 +13,6 @@ class GraphPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // 左のメモリの調整
-
-    const barNum = 14;
-
     return StreamBuilder<List<Answer>>(
       stream: ref.watch(answersControllerProvider),
       builder: (context, snapshot) {
