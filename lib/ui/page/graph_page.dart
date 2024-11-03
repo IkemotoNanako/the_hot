@@ -112,7 +112,7 @@ class GraphPage extends ConsumerWidget {
             );
           },
         ),
-        _Game(),
+        const _Game(),
       ],
     );
   }

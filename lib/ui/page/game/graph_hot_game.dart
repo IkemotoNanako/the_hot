@@ -1,8 +1,5 @@
 import 'dart:math';
 import 'package:flutter_hackathon_2024/ui/page/game/hot_game.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:http/http.dart' as http;
-import 'dart:ui' as ui show Image;
 
 import 'package:flame/game.dart';
 import 'package:flame_riverpod/flame_riverpod.dart';
