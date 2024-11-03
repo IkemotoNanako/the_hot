@@ -2,6 +2,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hackathon_2024/domain/answer.dart';
 import 'package:flutter_hackathon_2024/domain/hot_item.dart';
+import 'package:flutter_hackathon_2024/domain/search_condition.dart';
 import 'package:flutter_hackathon_2024/ui/controller/answers_controller.dart';
 import 'package:flutter_hackathon_2024/ui/style/custom_text_theme.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -113,7 +114,20 @@ class GraphPage extends ConsumerWidget {
 extension on List<Answer> {
   // データの集計
   Map<int, (int, HotItem)> get countMap {
-    final map = <int, (int, HotItem)>{};
+    final map = <int, (int, HotItem)>{
+      for (var i = 0; i < 14; i++)
+        i: (
+          0,
+          HotItem(
+            id: i,
+            title: 'タイトル$i',
+            description: '説明$i',
+            imageUrl:
+                'https://udulgbhamonxiegmurxx.supabase.co/storage/v1/object/public/hot_items/question.png?t=2024-11-03T03%3A15%3A58.073Z',
+            searchCondition: const SearchCondition(latitude: 0, longitude: 0),
+          ),
+        ),
+    };
     for (final answer in this) {
       map[answer.hotItem.id] =
           ((map[answer.hotItem.id]?.$1 ?? 0) + 1, answer.hotItem);
