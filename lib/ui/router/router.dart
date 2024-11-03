@@ -3,6 +3,7 @@ import 'package:flutter_hackathon_2024/ui/page/answer_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/create_todo_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/debug/debug_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/debug/debug_text_style_page.dart';
+import 'package:flutter_hackathon_2024/ui/page/graph_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/question_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/sample_page.dart';
 import 'package:flutter_hackathon_2024/ui/page/sign_in_page.dart';
@@ -48,6 +49,7 @@ GoRouter appRouter(Ref ref) {
 }
 
 @TypedGoRoute<TopPageRoute>(path: '/top_page', routes: [
+  TypedGoRoute<GraphRoute>(path: 'graph'),
   TypedGoRoute<QuestionPageRoute>(path: 'question', routes: [
     TypedGoRoute<AnswerPageRoute>(path: 'answer'),
   ]),
@@ -61,6 +63,13 @@ class TopPageRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context, GoRouterState state) => const TopPage();
+}
+
+class GraphRoute extends GoRouteData {
+  const GraphRoute();
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) => const GraphPage();
 }
 
 class QuestionPageRoute extends GoRouteData {
