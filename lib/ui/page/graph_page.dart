@@ -37,6 +37,7 @@ class GraphPage extends ConsumerWidget {
           leftTitles: AxisTitles(
             sideTitles: SideTitles(
               showTitles: true,
+
               reservedSize: 100,
               interval: 20, // 最大値を5で割るとかが良さそう
               getTitlesWidget: (value, meta) => SideTitleWidget(
@@ -78,6 +79,7 @@ class GraphPage extends ConsumerWidget {
             padding: const EdgeInsets.all(8.0),
             child: BarChart(
               BarChartData(
+                maxY: data.maxCount.toDouble(),
                 titlesData: titleData,
                 // グリッドを消す
                 gridData: const FlGridData(show: false),
@@ -133,5 +135,16 @@ extension on List<Answer> {
           ((map[answer.hotItem.id]?.$1 ?? 0) + 1, answer.hotItem);
     }
     return map;
+  }
+
+  int get maxCount {
+    var max = 0;
+    for (final entry in countMap.entries) {
+      if (entry.value.$1 > max) {
+        max = entry.value.$1;
+      }
+    }
+
+    return 5 > max ? 5 : max;
   }
 }
